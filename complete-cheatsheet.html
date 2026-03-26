@@ -1,0 +1,1731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srinivasan — Complete Interview Prep Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#07090f;--s1:#0d1018;--s2:#12161f;--s3:#181d28;--s4:#1d2230;
+  --b1:#212840;--b2:#2c3555;--b3:#3a4570;
+  --tx:#e2e8f8;--m1:#6b7a9e;--m2:#3d4a65;--m3:#252e45;
+  --acc:#5b8dee;--acc2:#89b4ff;--ag:rgba(91,141,238,.1);
+  --gr:#22c55e;--am:#f59e0b;--rd:#ef4444;--pk:#d946ef;--cy:#06b6d4;--or:#f97316;
+  --mono:'JetBrains Mono',monospace;--sans:'Plus Jakarta Sans',sans-serif;
+  --sb:268px;
+}
+html,body{height:100%;overflow:hidden}
+body{font-family:var(--sans);background:var(--bg);color:var(--tx);display:flex;font-size:14px}
+::-webkit-scrollbar{width:5px;height:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--b1);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--b2)}
+
+/* ── SIDEBAR ── */
+.sb{width:var(--sb);background:var(--s1);border-right:1px solid var(--b1);display:flex;flex-direction:column;flex-shrink:0;overflow:hidden}
+.sb-top{padding:16px 14px 12px;border-bottom:1px solid var(--b1);flex-shrink:0}
+.sb-brand{display:flex;align-items:center;gap:10px;margin-bottom:3px}
+.sb-av{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#5b8dee,#7c3aed);display:grid;place-items:center;font-weight:700;font-size:12px;color:#fff;flex-shrink:0;letter-spacing:-.5px}
+.sb-nm{font-size:14px;font-weight:700;letter-spacing:-.4px}
+.sb-sub{font-size:10px;color:var(--m1);font-family:var(--mono);padding-left:42px;margin-top:1px}
+.sb-search{padding:8px 12px;flex-shrink:0}
+.sb-search input{width:100%;background:var(--s2);border:1px solid var(--b1);border-radius:7px;padding:6px 10px;font-size:12px;color:var(--tx);font-family:var(--sans);outline:none;transition:border .15s}
+.sb-search input:focus{border-color:var(--acc)}
+.sb-search input::placeholder{color:var(--m2)}
+.sb-nav{flex:1;overflow-y:auto;padding:4px 8px 8px}
+.sb-sec{margin-bottom:2px}
+.sb-sec-lbl{font-size:9px;font-weight:700;color:var(--m2);letter-spacing:1.4px;text-transform:uppercase;padding:8px 8px 3px}
+.sb-item{display:flex;align-items:center;gap:8px;padding:6px 9px;border-radius:7px;cursor:pointer;transition:all .12s;margin-bottom:1px;border:1px solid transparent}
+.sb-item:hover{background:var(--s2);color:var(--tx)}
+.sb-item.active{background:var(--ag);border-color:rgba(91,141,238,.25);color:var(--acc2)}
+.sb-ico{font-size:13px;width:17px;text-align:center;flex-shrink:0}
+.sb-lbl{font-size:12.5px;color:var(--m1);flex:1;line-height:1.2}
+.sb-item.active .sb-lbl,.sb-item:hover .sb-lbl{color:var(--tx)}
+.sb-item.active .sb-lbl{color:var(--acc2);font-weight:500}
+.sb-badge{font-size:9px;font-family:var(--mono);padding:1px 5px;border-radius:3px;flex-shrink:0;background:var(--s3);color:var(--m2);border:1px solid var(--b1)}
+.sb-item.active .sb-badge{background:var(--ag);color:var(--acc2);border-color:rgba(91,141,238,.2)}
+.sb-ft{padding:10px 12px;border-top:1px solid var(--b1);flex-shrink:0}
+.sb-pr{display:flex;justify-content:space-between;font-size:10px;color:var(--m2);margin-bottom:5px}
+.sb-pb{height:3px;background:var(--b1);border-radius:2px}
+.sb-pf{height:100%;background:linear-gradient(90deg,var(--acc),#9c40f0);border-radius:2px;transition:width .5s}
+
+/* ── MAIN ── */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.tbar{height:48px;background:var(--s1);border-bottom:1px solid var(--b1);display:flex;align-items:center;padding:0 28px;gap:0;flex-shrink:0}
+.tbar-bc{font-size:11px;color:var(--m1);font-family:var(--mono);flex:1}
+.tbar-bc span{color:var(--acc2)}
+.lvbar{display:flex;background:var(--s1);border-bottom:1px solid var(--b1);padding:0 28px;flex-shrink:0}
+.lvt{padding:8px 14px;font-size:12px;font-weight:500;cursor:pointer;border-bottom:2px solid transparent;color:var(--m1);transition:all .12s;font-family:var(--mono);display:flex;align-items:center;gap:5px}
+.lvt:hover{color:var(--tx)}
+.lvt.active{color:var(--acc2);border-color:var(--acc)}
+.lvt-dot{width:6px;height:6px;border-radius:50%}
+.ca{flex:1;overflow-y:auto;padding:28px 36px 60px}
+.page{display:none}.page.active{display:block}
+.lsec{display:none}.lsec.active{display:block}
+
+/* ── HERO ── */
+.hero{padding-bottom:24px;border-bottom:1px solid var(--b1);margin-bottom:28px}
+.hero-cat{font-size:9px;font-weight:700;font-family:var(--mono);letter-spacing:1.3px;text-transform:uppercase;color:var(--m1);margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.hero-cat::before{content:'';width:3px;height:12px;border-radius:2px;background:currentColor}
+.hero h1{font-size:26px;font-weight:700;letter-spacing:-.5px;line-height:1.2;margin-bottom:6px}
+.hero h1 em{font-style:normal}
+.hero p{font-size:13px;color:var(--m1);line-height:1.75;max-width:580px}
+.hero-tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px}
+.htag{font-size:10px;font-family:var(--mono);padding:2px 8px;border-radius:10px;border:1px solid}
+
+/* ── TOPIC BLOCK — core unit ── */
+.topic{background:var(--s2);border:1px solid var(--b1);border-radius:12px;overflow:hidden;margin-bottom:20px;transition:border-color .2s}
+.topic:hover{border-color:var(--b2)}
+.topic-hd{padding:14px 18px;border-bottom:1px solid var(--b1);display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.topic-hd:hover{background:var(--s3)}
+.topic-ico{font-size:16px;flex-shrink:0}
+.topic-meta{flex:1}
+.topic-name{font-size:14px;font-weight:700;letter-spacing:-.2px;margin-bottom:2px}
+.topic-tagline{font-size:11px;color:var(--m1)}
+.topic-diff{font-size:9px;font-family:var(--mono);padding:2px 7px;border-radius:3px}
+.d-e{background:rgba(34,197,94,.1);color:#4ade80;border:1px solid rgba(34,197,94,.2)}
+.d-m{background:rgba(245,158,11,.1);color:#fbbf24;border:1px solid rgba(245,158,11,.2)}
+.d-h{background:rgba(239,68,68,.1);color:#f87171;border:1px solid rgba(239,68,68,.2)}
+.topic-chv{color:var(--m2);font-size:11px;transition:transform .2s;flex-shrink:0}
+.topic.open .topic-chv{transform:rotate(180deg)}
+.topic-body{display:none;padding:18px}
+.topic.open .topic-body{display:block}
+
+/* definition block */
+.def{background:rgba(91,141,238,.07);border:1px solid rgba(91,141,238,.18);border-radius:8px;padding:13px 16px;margin-bottom:14px}
+.def-lbl{font-size:9px;font-weight:700;color:var(--acc2);text-transform:uppercase;letter-spacing:.9px;font-family:var(--mono);margin-bottom:5px}
+.def-tx{font-size:13px;color:#a8bce0;line-height:1.75}
+.def-tx strong{color:var(--tx)}
+
+/* real world */
+.rw{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);border-radius:8px;padding:12px 15px;margin-bottom:14px}
+.rw-lbl{font-size:9px;font-weight:700;color:var(--am);text-transform:uppercase;letter-spacing:.9px;font-family:var(--mono);margin-bottom:5px}
+.rw-tx{font-size:12.5px;color:#d4a847;line-height:1.7}
+.rw-tx strong{color:var(--am)}
+
+/* code block */
+.cb{background:#040608;border:1px solid var(--b1);border-radius:8px;overflow:hidden;margin-bottom:14px}
+.cb-hd{background:var(--s2);border-bottom:1px solid var(--b1);padding:7px 13px;display:flex;align-items:center;justify-content:space-between}
+.cb-lbl{font-size:10px;font-family:var(--mono);color:var(--m1);display:flex;align-items:center;gap:6px}
+.cb-dot{width:7px;height:7px;border-radius:50%}
+.cpb{font-size:9px;font-family:var(--mono);color:var(--m1);cursor:pointer;padding:2px 7px;border-radius:3px;border:1px solid var(--b1);background:transparent;transition:all .15s}
+.cpb:hover{color:var(--tx);border-color:var(--b2)}
+pre{padding:14px 16px;overflow-x:auto;font-family:var(--mono);font-size:12px;line-height:1.75;color:#c9d1d9}
+.kw{color:#ff7b72}.cls{color:#79c0ff}.fn{color:#d2a8ff}.str{color:#a5d6ff}.cmt{color:#4d5a70;font-style:italic}.num{color:#f0a940}.ann{color:#f2cc60}.dec{color:#7ee787}.op{color:#79c0ff}
+
+/* QA inside topic */
+.qa-list{border-top:1px solid var(--b1);margin-top:14px;padding-top:14px}
+.qa-lbl{font-size:9px;font-weight:700;color:var(--m1);text-transform:uppercase;letter-spacing:1px;font-family:var(--mono);margin-bottom:8px}
+.qa{border:1px solid var(--b1);border-radius:8px;overflow:hidden;margin-bottom:6px}
+.qa-q{padding:10px 14px;cursor:pointer;display:flex;align-items:flex-start;gap:8px;transition:background .12s}
+.qa-q:hover{background:var(--s3)}
+.qa-q-ico{font-size:11px;color:var(--acc);flex-shrink:0;margin-top:1px;font-family:var(--mono)}
+.qa-q-tx{font-size:12.5px;font-weight:500;flex:1;line-height:1.45}
+.qa-q-d{font-size:9px;font-family:var(--mono);padding:1px 5px;border-radius:3px;flex-shrink:0}
+.qa-chv{color:var(--m2);font-size:10px;transition:transform .2s;flex-shrink:0;margin-top:2px}
+.qa.open .qa-chv{transform:rotate(180deg)}
+.qa-a{display:none;padding:10px 14px 12px;border-top:1px solid var(--b1);background:var(--bg)}
+.qa.open .qa-a{display:block}
+.qa-a-lbl{font-size:9px;font-weight:700;color:var(--gr);text-transform:uppercase;letter-spacing:.8px;font-family:var(--mono);margin-bottom:6px}
+.qa-a-tx{font-size:12.5px;color:#8fa3c4;line-height:1.7}
+.qa-a-tx strong{color:var(--tx)}
+.qa-tip{background:rgba(91,141,238,.08);border:1px solid rgba(91,141,238,.2);border-radius:6px;padding:8px 12px;margin-top:8px;font-size:12px;color:var(--acc2);line-height:1.6}
+.qa-code{background:#040608;border:1px solid var(--b1);border-radius:6px;padding:10px 13px;margin-top:8px;font-family:var(--mono);font-size:11.5px;line-height:1.65;color:#c9d1d9;overflow-x:auto;white-space:pre}
+
+/* Section heading */
+.sh{display:flex;align-items:center;gap:8px;margin:28px 0 14px}
+.sh:first-child{margin-top:0}
+.sh-num{font-size:9px;font-family:var(--mono);color:var(--acc2);background:var(--ag);border:1px solid rgba(91,141,238,.2);padding:2px 7px;border-radius:3px}
+.sh-t{font-size:17px;font-weight:700;letter-spacing:-.3px}
+
+/* HR specific */
+.star-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.star-c{border-radius:10px;padding:16px;border:1px solid}
+.star-l{font-size:30px;font-weight:800;font-family:var(--mono);line-height:1;margin-bottom:5px}
+.star-w{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;font-family:var(--mono)}
+.star-d{font-size:12px;line-height:1.6;opacity:.8}
+
+.script-box{background:var(--s2);border:1px solid var(--b1);border-radius:10px;overflow:hidden;margin-bottom:14px}
+.script-hd{padding:10px 15px;border-bottom:1px solid var(--b1);display:flex;align-items:center;justify-content:space-between}
+.script-tag{font-size:10px;font-family:var(--mono);padding:2px 8px;border-radius:10px}
+.script-body{padding:15px;font-size:12.5px;color:#a8bce0;line-height:1.8}
+.script-body strong{color:var(--tx)}
+.script-body em{color:var(--acc2);font-style:normal}
+
+.sal-table{width:100%;border-collapse:collapse;margin-bottom:16px;font-size:12.5px}
+.sal-table th{background:var(--s3);padding:9px 13px;text-align:left;font-size:10px;font-weight:600;color:var(--m1);border-bottom:1px solid var(--b1)}
+.sal-table td{padding:9px 13px;border-bottom:1px solid var(--b1)}
+.sal-table tr:last-child td{border-bottom:none}
+.hi{color:#4ade80;font-weight:600}
+.mid{color:#fbbf24;font-weight:600}
+
+/* compare */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.cmp-b{background:var(--s2);border:1px solid var(--b1);border-radius:8px;overflow:hidden}
+.cmp-hd{padding:10px 14px;border-bottom:1px solid var(--b1);font-size:12px;font-weight:600;display:flex;align-items:center;gap:6px}
+.cmp-r{padding:6px 14px;font-size:12px;color:var(--m1);display:flex;align-items:flex-start;gap:5px;line-height:1.5}
+.cmp-r::before{content:'▸';color:var(--b3);flex-shrink:0;font-size:10px;margin-top:2px}
+
+/* card grid */
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:10px;margin-bottom:16px}
+.cc{background:var(--s2);border:1px solid var(--b1);border-radius:10px;padding:14px;transition:all .15s}
+.cc:hover{border-color:var(--b2);transform:translateY(-1px)}
+.cc-ic{font-size:18px;margin-bottom:7px}
+.cc-n{font-size:13px;font-weight:600;margin-bottom:4px}
+.cc-d{font-size:12px;color:var(--m1);line-height:1.6}
+
+.info{background:rgba(6,182,212,.06);border:1px solid rgba(6,182,212,.18);border-radius:7px;padding:10px 14px;font-size:12.5px;color:#7dd3e8;line-height:1.65;margin-bottom:12px}
+.info strong{color:var(--cy)}
+.warn{background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.18);border-radius:7px;padding:10px 14px;font-size:12.5px;color:#fca5a5;line-height:1.65;margin-bottom:12px}
+.warn strong{color:var(--rd)}
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ── -->
+<aside class="sb">
+  <div class="sb-top">
+    <div class="sb-brand">
+      <div class="sb-av">SP</div>
+      <div class="sb-nm">Interview Prep Hub</div>
+    </div>
+    <div class="sb-sub">Srinivasan P · Full Stack · 2026</div>
+  </div>
+  <div class="sb-search"><input type="text" placeholder="🔍 search topics..." oninput="filterSB(this.value)" id="sb-search"></div>
+  <nav class="sb-nav" id="sb-nav">
+
+    <div class="sb-sec">
+      <div class="sb-sec-lbl">☕ Java Core</div>
+      <div class="sb-item active" onclick="go('java-core','Java Core')"><span class="sb-ico">📦</span><span class="sb-lbl">Java Fundamentals</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('oop','OOP & Design')"><span class="sb-ico">🧩</span><span class="sb-lbl">OOP + Design Patterns</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('threading','Multi-threading')"><span class="sb-ico">🧵</span><span class="sb-lbl">Multi-threading</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('java-adv','Java Advanced')"><span class="sb-ico">⚡</span><span class="sb-lbl">Streams, Lambda, Generics</span><span class="sb-badge">live</span></div>
+    </div>
+
+    <div class="sb-sec">
+      <div class="sb-sec-lbl">🌱 Spring Ecosystem</div>
+      <div class="sb-item" onclick="go('spring','Spring Boot')"><span class="sb-ico">🍃</span><span class="sb-lbl">Spring Boot Core</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('restapi','REST API')"><span class="sb-ico">🔗</span><span class="sb-lbl">REST API Design</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('microservices','Microservices')"><span class="sb-ico">⚙️</span><span class="sb-lbl">Microservices</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('jpa','JPA / Hibernate')"><span class="sb-ico">🗄️</span><span class="sb-lbl">JPA / Hibernate</span><span class="sb-badge">live</span></div>
+    </div>
+
+    <div class="sb-sec">
+      <div class="sb-sec-lbl">🏗️ System Design</div>
+      <div class="sb-item" onclick="go('principles','Design Principles')"><span class="sb-ico">📐</span><span class="sb-lbl">SOLID, DRY, KISS, YAGNI</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('caching','Caching')"><span class="sb-ico">⚡</span><span class="sb-lbl">Caching Strategies</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('lb','Load Balancing')"><span class="sb-ico">⚖️</span><span class="sb-lbl">Load Balancing</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('mq','Message Queues')"><span class="sb-ico">📨</span><span class="sb-lbl">Message Queues / Kafka</span><span class="sb-badge">live</span></div>
+    </div>
+
+    <div class="sb-sec">
+      <div class="sb-sec-lbl">🗄️ SQL & Databases</div>
+      <div class="sb-item" onclick="go('sql','SQL / PostgreSQL')"><span class="sb-ico">📊</span><span class="sb-lbl">SQL Deep Dive</span><span class="sb-badge">live</span></div>
+    </div>
+
+    <div class="sb-sec">
+      <div class="sb-sec-lbl">🌐 Web Frontend</div>
+      <div class="sb-item" onclick="go('react','ReactJS')"><span class="sb-ico">⚛️</span><span class="sb-lbl">ReactJS + Hooks</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('js','JavaScript')"><span class="sb-ico">🟡</span><span class="sb-lbl">JavaScript ES6+</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('htmlcss','HTML / CSS')"><span class="sb-ico">🎨</span><span class="sb-lbl">HTML + CSS</span><span class="sb-badge">live</span></div>
+    </div>
+
+    <div class="sb-sec">
+      <div class="sb-sec-lbl">🤝 HR & Behavioral</div>
+      <div class="sb-item" onclick="go('hr','HR Round')"><span class="sb-ico">🎤</span><span class="sb-lbl">Self Intro + STAR Method</span><span class="sb-badge">live</span></div>
+      <div class="sb-item" onclick="go('salary','Salary Discussion')"><span class="sb-ico">💰</span><span class="sb-lbl">Salary Negotiation</span><span class="sb-badge">live</span></div>
+    </div>
+
+  </nav>
+  <div class="sb-ft">
+    <div class="sb-pr"><span>Topics covered</span><span id="pv-c" style="font-family:var(--mono);font-size:10px;color:var(--acc2)">1/16</span></div>
+    <div class="sb-pb"><div class="sb-pf" id="pv-f" style="width:6%"></div></div>
+  </div>
+</aside>
+
+<!-- ── MAIN ── -->
+<div class="main">
+  <div class="tbar">
+    <div class="tbar-bc">Interview Prep › <span id="bc-txt">Java Core</span></div>
+  </div>
+  <div class="lvbar">
+    <div class="lvt active" onclick="setLvl(0)"><span class="lvt-dot" style="background:#4ade80"></span>Basic</div>
+    <div class="lvt" onclick="setLvl(1)"><span class="lvt-dot" style="background:#fbbf24"></span>Intermediate</div>
+    <div class="lvt" onclick="setLvl(2)"><span class="lvt-dot" style="background:#f87171"></span>Advanced</div>
+  </div>
+  <div class="ca">
+
+<!-- ═══════════════════════════════════════════
+     JAVA CORE
+═══════════════════════════════════════════ -->
+<div class="page active" id="page-java-core">
+
+<div class="hero">
+  <div class="hero-cat" style="color:var(--am)">Java Core</div>
+  <h1>Java <em style="color:var(--acc2)">Fundamentals</em></h1>
+  <p>Everything from data types to exception handling — covering every concept interviewers test in 2–3 year experience rounds.</p>
+</div>
+
+<!-- BASIC -->
+<div class="lsec active" id="java-core-0">
+
+<!-- Mutable vs Immutable -->
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔄</span>
+    <div class="topic-meta"><div class="topic-name">Mutable vs Immutable</div><div class="topic-tagline">Most asked basic concept in Java interviews</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Mutable</strong> objects can be modified after creation — their state (fields) can change. <strong>Immutable</strong> objects cannot be changed once created — any "modification" returns a new object. Immutable objects are <strong>thread-safe</strong> by default.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx"><strong>Mutable:</strong> A Google Doc — you can edit it anytime. <strong>Immutable:</strong> A printed book — to "change" it, you print a new edition. In Java: <strong>String is immutable</strong>, StringBuilder is mutable.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f89820"></div>MutableVsImmutable.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// ✅ IMMUTABLE — String</span>
+<span class="cls">String</span> s = <span class="str">"Hello"</span>;
+s.<span class="fn">concat</span>(<span class="str">" World"</span>);   <span class="cmt">// creates a NEW String — s is still "Hello"</span>
+<span class="cls">System</span>.out.<span class="fn">println</span>(s); <span class="cmt">// Hello (unchanged!)</span>
+s = s.<span class="fn">concat</span>(<span class="str">" World"</span>); <span class="cmt">// now s points to new object</span>
+
+<span class="cmt">// 🔧 MUTABLE — StringBuilder</span>
+<span class="cls">StringBuilder</span> sb = <span class="kw">new</span> <span class="cls">StringBuilder</span>(<span class="str">"Hello"</span>);
+sb.<span class="fn">append</span>(<span class="str">" World"</span>);    <span class="cmt">// SAME object modified</span>
+<span class="cls">System</span>.out.<span class="fn">println</span>(sb); <span class="cmt">// Hello World</span>
+
+<span class="cmt">// ✅ How to create your own Immutable class</span>
+<span class="kw">public final class</span> <span class="cls">Money</span> {              <span class="cmt">// final — can't extend</span>
+    <span class="kw">private final double</span> amount;         <span class="cmt">// final — can't reassign</span>
+    <span class="kw">private final</span> <span class="cls">String</span> currency;
+    <span class="kw">public</span> <span class="cls">Money</span>(<span class="kw">double</span> amount, <span class="cls">String</span> currency) {
+        <span class="kw">this</span>.amount = amount;
+        <span class="kw">this</span>.currency = currency;
+    }
+    <span class="kw">public double</span> <span class="fn">getAmount</span>()   { <span class="kw">return</span> amount; }
+    <span class="kw">public</span> <span class="cls">String</span> <span class="fn">getCurrency</span>() { <span class="kw">return</span> currency; }
+    <span class="cmt">// No setters! Returns new object for "changes"</span>
+    <span class="kw">public</span> <span class="cls">Money</span> <span class="fn">add</span>(<span class="kw">double</span> extra) {
+        <span class="kw">return new</span> <span class="cls">Money</span>(amount + extra, currency);
+    }
+}</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Why is String immutable in Java?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">String is immutable because: <strong>1. Security</strong> — usernames, passwords, URLs stored as strings can't be changed mid-flight. <strong>2. Thread-safety</strong> — shared across threads without sync. <strong>3. String Pool</strong> — JVM can reuse strings in pool only if they can't change. <strong>4. HashCode caching</strong> — HashMap keys need a stable hashCode.</div><div class="qa-tip">💡 <strong>Say this:</strong> "If String were mutable, a HashMap key could change after insertion, making the entry unrecoverable."</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Rules to make a class immutable in Java?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>1.</strong> Declare class as <strong>final</strong> (no subclassing). <strong>2.</strong> All fields <strong>private final</strong>. <strong>3.</strong> No setters. <strong>4.</strong> Initialize all fields via constructor. <strong>5.</strong> For mutable fields (List, Date): return defensive copies in getters. Java 14+ <strong>Records</strong> are immutable by default.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- String vs StringBuilder vs StringBuffer -->
+<div class="topic">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔤</span>
+    <div class="topic-meta"><div class="topic-name">String vs StringBuilder vs StringBuffer</div><div class="topic-tagline">Performance difference — classic interview trap</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>String</strong> is immutable — every concat creates a new object in heap. <strong>StringBuilder</strong> is mutable and <strong>NOT thread-safe</strong> — best for single-threaded use. <strong>StringBuffer</strong> is mutable and <strong>thread-safe</strong> (synchronized) — slightly slower due to locks.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">Building a large JSON/CSV response in a loop — always use <strong>StringBuilder</strong>. Using String + in a loop creates thousands of objects, killing performance. For Ford's report generation via Java REST APIs, StringBuilder would be essential for string assembly.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f89820"></div>StringPerformance.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// ❌ BAD — String in loop (1000 new objects!)</span>
+<span class="cls">String</span> result = <span class="str">""</span>;
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < <span class="num">1000</span>; i++) result += i; <span class="cmt">// slow!</span>
+
+<span class="cmt">// ✅ GOOD — StringBuilder (single object)</span>
+<span class="cls">StringBuilder</span> sb = <span class="kw">new</span> <span class="cls">StringBuilder</span>();
+<span class="kw">for</span> (<span class="kw">int</span> i = <span class="num">0</span>; i < <span class="num">1000</span>; i++) sb.<span class="fn">append</span>(i);
+<span class="cls">String</span> result = sb.<span class="fn">toString</span>();
+
+<span class="cmt">// Thread-safe — StringBuffer</span>
+<span class="cls">StringBuffer</span> sbuf = <span class="kw">new</span> <span class="cls">StringBuffer</span>();
+<span class="cmt">// synchronized — safe for multi-threaded writing</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">When would you use StringBuffer over StringBuilder?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Use <strong>StringBuffer</strong> only when multiple threads will append to the same object concurrently. In 99% of cases, <strong>StringBuilder</strong> is correct and faster. If thread-safety is needed at a higher level (e.g., the whole method is synchronized), still use StringBuilder.</div><div class="qa-tip">💡 Real answer: "In modern Java, StringBuffer is rarely used. We handle thread safety at a higher level."</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- == vs equals -->
+<div class="topic">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">⚖️</span>
+    <div class="topic-meta"><div class="topic-name">== vs .equals() vs hashCode()</div><div class="topic-tagline">Asked in 90% of Java interviews</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>==</strong> compares <strong>references</strong> (memory addresses) for objects — checks if two variables point to the exact same object. <strong>.equals()</strong> compares <strong>content/value</strong> — can be overridden to define what "equal" means. <strong>hashCode()</strong> returns an integer representing the object — equal objects MUST have the same hashCode.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f89820"></div>EqualsDemo.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cls">String</span> a = <span class="kw">new</span> <span class="cls">String</span>(<span class="str">"hello"</span>);
+<span class="cls">String</span> b = <span class="kw">new</span> <span class="cls">String</span>(<span class="str">"hello"</span>);
+a == b           <span class="cmt">// false — different heap objects</span>
+a.<span class="fn">equals</span>(b)    <span class="cmt">// true  — same content</span>
+
+<span class="cmt">// String Pool (literals)</span>
+<span class="cls">String</span> x = <span class="str">"hello"</span>;
+<span class="cls">String</span> y = <span class="str">"hello"</span>;
+x == y           <span class="cmt">// true  — same pool reference</span>
+
+<span class="cmt">// Always override both equals AND hashCode together</span>
+<span class="ann">@Override</span>
+<span class="kw">public boolean</span> <span class="fn">equals</span>(<span class="cls">Object</span> o) {
+    <span class="kw">if</span> (<span class="kw">this</span> == o) <span class="kw">return true</span>;
+    <span class="kw">if</span> (!(o <span class="kw">instanceof</span> <span class="cls">User</span>)) <span class="kw">return false</span>;
+    <span class="cls">User</span> u = (<span class="cls">User</span>) o;
+    <span class="kw">return</span> <span class="cls">Objects</span>.<span class="fn">equals</span>(id, u.id);
+}
+<span class="ann">@Override</span>
+<span class="kw">public int</span> <span class="fn">hashCode</span>() { <span class="kw">return</span> <span class="cls">Objects</span>.<span class="fn">hash</span>(id); }</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What happens if you override equals but not hashCode?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">The <strong>HashMap contract breaks</strong>. If two objects are equal (equals returns true) but have different hashCodes, they'll be placed in different buckets. <code>map.get(key)</code> will compute hashCode, go to the wrong bucket, and return null — even though the key "exists".</div><div class="qa-tip">💡 Rule: "If a.equals(b), then a.hashCode() == b.hashCode(). ALWAYS." Use @Override to ensure you don't forget.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Checked vs Unchecked -->
+<div class="topic">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">⚠️</span>
+    <div class="topic-meta"><div class="topic-name">Checked vs Unchecked Exceptions</div><div class="topic-tagline">Compile-time vs runtime — know the difference cold</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Checked exceptions</strong> extend Exception — must be declared with <code>throws</code> or caught at compile time (IOException, SQLException). <strong>Unchecked exceptions</strong> extend RuntimeException — not required to catch, discovered at runtime (NullPointerException, ArrayIndexOutOfBoundsException).</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx"><strong>Checked:</strong> Reading a file — the file might not exist, compiler forces you to handle it. <strong>Unchecked:</strong> NullPointerException — a bug in your code, not a recoverable condition.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f89820"></div>ExceptionDemo.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Checked — must handle</span>
+<span class="kw">try</span> (<span class="cls">FileReader</span> fr = <span class="kw">new</span> <span class="cls">FileReader</span>(<span class="str">"data.txt"</span>)) {
+    <span class="cmt">// auto-closed via try-with-resources</span>
+} <span class="kw">catch</span> (<span class="cls">IOException</span> e) {
+    log.<span class="fn">error</span>(<span class="str">"File read failed"</span>, e);
+    <span class="kw">throw new</span> <span class="cls">ServiceException</span>(<span class="str">"Cannot read config"</span>, e); <span class="cmt">// wrap</span>
+}
+
+<span class="cmt">// Custom exception hierarchy</span>
+<span class="kw">public class</span> <span class="cls">ResourceNotFoundException</span> <span class="kw">extends</span> <span class="cls">RuntimeException</span> {
+    <span class="kw">public</span> <span class="cls">ResourceNotFoundException</span>(<span class="cls">String</span> resource, <span class="cls">Long</span> id) {
+        <span class="kw">super</span>(resource + <span class="str">" not found with id: "</span> + id);
+    }
+}
+<span class="cmt">// Usage in Spring Boot service</span>
+<span class="kw">return</span> userRepo.<span class="fn">findById</span>(id)
+    .<span class="fn">orElseThrow</span>(() -> <span class="kw">new</span> <span class="cls">ResourceNotFoundException</span>(<span class="str">"User"</span>, id));</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is the difference between throw and throws?</span><span class="qa-q-d d-e">Easy</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>throw</strong> is used inside a method to actually throw an exception object. <strong>throws</strong> is used in the method signature to declare that a method might throw a checked exception — it's a warning to callers.</div><div class="qa-code"><span class="kw">void</span> <span class="fn">readFile</span>() <span class="kw">throws</span> <span class="cls">IOException</span> { <span class="cmt">// declares</span>
+    <span class="kw">throw new</span> <span class="cls">IOException</span>(<span class="str">"File not found"</span>); <span class="cmt">// actually throws</span>
+}</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Does finally always execute?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Yes, <strong>almost always</strong>. Exceptions: (1) <code>System.exit()</code> called, (2) JVM crashes, (3) Thread is killed. Even if try or catch throws an exception, finally runs. If both catch and finally throw, the finally exception <strong>overwrites</strong> the catch exception.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end basic -->
+
+<!-- INTERMEDIATE -->
+<div class="lsec" id="java-core-1">
+
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🗺️</span>
+    <div class="topic-meta"><div class="topic-name">HashMap Internal Working</div><div class="topic-tagline">Most popular intermediate question — know it deeply</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">HashMap stores key-value pairs in an <strong>array of buckets</strong>. Key's <strong>hashCode()</strong> determines the bucket index. Collisions (same bucket, different keys) form a <strong>LinkedList</strong>; Java 8+ converts to a <strong>Red-Black Tree</strong> when bucket size exceeds 8 — giving O(log n) instead of O(n) worst case.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">A <strong>library card catalogue</strong> — drawers are buckets (indexed by first letter of book name). Most drawers have a short list. If one drawer overflows, the librarian switches to a tree index inside that drawer for faster search.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f89820"></div>HashMapInternal.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Default capacity=16, load factor=0.75</span>
+<span class="cmt">// Rehash when 75% full → doubles capacity</span>
+<span class="cls">Map</span>&lt;<span class="cls">String</span>,<span class="cls">Integer</span>&gt; map = <span class="kw">new</span> <span class="cls">HashMap</span>&lt;&gt;(<span class="num">32</span>, <span class="num">0.75f</span>); <span class="cmt">// pre-size if known</span>
+
+<span class="cmt">// put() flow internally:</span>
+<span class="cmt">// 1. hash = key.hashCode() ^ (h >>> 16)</span>
+<span class="cmt">// 2. index = hash & (capacity-1)</span>
+<span class="cmt">// 3. bucket[index] exists? → check equals()</span>
+<span class="cmt">// 4. no? add new Node. yes? update value</span>
+<span class="cmt">// 5. bucket size > 8? → treeify to Red-Black Tree</span>
+
+<span class="cmt">// Thread-safe alternatives</span>
+<span class="cls">Map</span>&lt;<span class="cls">String</span>,<span class="cls">Integer</span>&gt; safe1 = <span class="cls">Collections</span>.<span class="fn">synchronizedMap</span>(<span class="kw">new</span> <span class="cls">HashMap</span>&lt;&gt;());
+<span class="cls">Map</span>&lt;<span class="cls">String</span>,<span class="cls">Integer</span>&gt; safe2 = <span class="kw">new</span> <span class="cls">ConcurrentHashMap</span>&lt;&gt;(); <span class="cmt">// better!</span>
+<span class="cmt">// ConcurrentHashMap uses segment locking (Java 7) / CAS (Java 8)</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is the difference between HashMap, LinkedHashMap, TreeMap, ConcurrentHashMap?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>HashMap</strong>: O(1) get/put, no ordering, allows null key/values. <strong>LinkedHashMap</strong>: maintains insertion order (or access order). <strong>TreeMap</strong>: keys sorted (natural order or Comparator), O(log n). <strong>ConcurrentHashMap</strong>: thread-safe, no null keys/values, uses CAS (compare-and-swap) in Java 8+.</div><div class="qa-tip">💡 Use LinkedHashMap for LRU cache. Use TreeMap for range queries. Use ConcurrentHashMap in multi-threaded environments.</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Why can't we use a mutable object as a HashMap key?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">If you mutate the key after putting it in the map, its <strong>hashCode changes</strong>. The entry is now in the wrong bucket. When you try to get it, HashMap looks in a different bucket and returns null — the entry is "lost" even though it's in the map.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="topic">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">📦</span>
+    <div class="topic-meta"><div class="topic-name">Autoboxing, Unboxing & Wrapper Classes</div><div class="topic-tagline">Know the NullPointerException traps</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Autoboxing</strong>: automatic conversion of primitive to Wrapper class (int → Integer) by the compiler. <strong>Unboxing</strong>: Wrapper → primitive (Integer → int). Wrapper classes (Integer, Double, Boolean…) add OOP capabilities to primitives — allow null, usable in collections.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">When you add an <code>int</code> to a <code>List&lt;Integer&gt;</code>, the compiler silently autoboxes it. When you do <code>int x = integerObj</code>, it unboxes. The danger: if the Integer is <strong>null</strong>, unboxing throws NullPointerException.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f89820"></div>AutoboxingDemo.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cls">List</span>&lt;<span class="cls">Integer</span>&gt; list = <span class="kw">new</span> <span class="cls">ArrayList</span>&lt;&gt;();
+list.<span class="fn">add</span>(<span class="num">42</span>);           <span class="cmt">// autoboxing: 42 → Integer.valueOf(42)</span>
+<span class="kw">int</span> val = list.<span class="fn">get</span>(<span class="num">0</span>); <span class="cmt">// unboxing: Integer → int</span>
+
+<span class="cmt">// ⚠️ Integer cache: -128 to 127 are cached</span>
+<span class="cls">Integer</span> a = <span class="num">127</span>;  <span class="cls">Integer</span> b = <span class="num">127</span>;
+a == b    <span class="cmt">// true (same cached object)</span>
+<span class="cls">Integer</span> c = <span class="num">128</span>;  <span class="cls">Integer</span> d = <span class="num">128</span>;
+c == d    <span class="cmt">// false (new objects!) → always use .equals()</span>
+
+<span class="cmt">// ⚠️ NPE trap</span>
+<span class="cls">Integer</span> score = <span class="kw">null</span>;
+<span class="kw">if</span> (score > <span class="num">0</span>) {} <span class="cmt">// NullPointerException! unboxing null</span>
+<span class="cmt">// Fix:</span>
+<span class="kw">if</span> (score != <span class="kw">null</span> && score > <span class="num">0</span>) {}</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is Integer cache and why does Integer == fail above 127?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Java caches Integer objects from -128 to 127 in a pool (IntegerCache). Within that range, Integer.valueOf() returns the same cached object. Beyond 127, new Integer objects are created — so == compares different references and returns false. Always use <strong>.equals()</strong> for Integer comparisons.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end intermediate -->
+
+<!-- ADVANCED -->
+<div class="lsec" id="java-core-2">
+
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔄</span>
+    <div class="topic-meta"><div class="topic-name">Java Memory Model — Stack, Heap, GC</div><div class="topic-tagline">JVM internals — senior-level questions</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Stack</strong>: stores method frames + local variables + references. Per-thread, LIFO, auto-cleaned. Fast. <strong>Heap</strong>: stores all objects. Shared across threads. Managed by Garbage Collector (GC). <strong>Metaspace</strong> (Java 8+): stores class metadata (replaced PermGen). <strong>GC</strong>: automatically reclaims unreachable heap objects.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f89820"></div>MemoryModel.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">public static void</span> <span class="fn">main</span>(<span class="cls">String</span>[] args) {
+    <span class="kw">int</span> age = <span class="num">25</span>;          <span class="cmt">// Stack: primitive value</span>
+    <span class="cls">String</span> name = <span class="str">"Sri"</span>;    <span class="cmt">// Stack: reference → Heap: String object</span>
+    <span class="cls">User</span> u = <span class="kw">new</span> <span class="cls">User</span>();  <span class="cmt">// Stack: reference → Heap: User object</span>
+}  <span class="cmt">// method returns → stack frame popped, age/name/u refs gone</span>
+   <span class="cmt">// Heap User object is now unreachable → eligible for GC</span>
+
+<span class="cmt">// GC Roots: static vars, local vars in active stacks, JNI refs</span>
+<span class="cmt">// G1GC (default Java 9+): concurrent, low-pause, region-based</span>
+<span class="cmt">// ZGC (Java 15+): sub-millisecond pauses for large heaps</span>
+
+<span class="cmt">// Tuning flags</span>
+<span class="cmt">// -Xms512m   initial heap</span>
+<span class="cmt">// -Xmx2g     max heap</span>
+<span class="cmt">// -XX:+UseG1GC  use G1 collector</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What causes a memory leak in Java?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Memory leaks happen when objects are <strong>reachable but never used</strong>. Common causes: (1) Static collections that grow indefinitely. (2) Listeners/callbacks never de-registered. (3) Long-lived objects holding short-lived references. (4) ThreadLocal variables not cleaned up. (5) Unclosed resources (Connection, Stream). Tools: JVisualVM, Eclipse MAT, async-profiler.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end advanced -->
+</div><!-- end java-core page -->
+
+
+<!-- ═══════════════════════════════════════════
+     DESIGN PRINCIPLES
+═══════════════════════════════════════════ -->
+<div class="page" id="page-principles">
+<div class="hero">
+  <div class="hero-cat" style="color:var(--pk)">System Design</div>
+  <h1>Design <em style="color:var(--pk)">Principles</em></h1>
+  <p>SOLID, DRY, KISS, YAGNI — the foundations every senior dev is expected to know and apply.</p>
+</div>
+
+<div class="lsec active" id="principles-0">
+
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">📐</span>
+    <div class="topic-meta"><div class="topic-name">SOLID Principles</div><div class="topic-tagline">5 principles that make code maintainable and scalable</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">SOLID is an acronym for 5 design principles: <strong>S</strong>ingle Responsibility, <strong>O</strong>pen/Closed, <strong>L</strong>iskov Substitution, <strong>I</strong>nterface Segregation, <strong>D</strong>ependency Inversion. They guide writing code that is easy to extend, test, and maintain without breaking existing functionality.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">SOLID principles are what Spring Boot is built on. <strong>S</strong> — UserService only handles users, not emails. <strong>O</strong> — Add new payment type without editing PaymentService. <strong>L</strong> — Every Repository subtype works where JpaRepository is expected. <strong>I</strong> — ReadRepository separate from WriteRepository. <strong>D</strong> — Controller depends on UserService interface, not the impl.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#d946ef"></div>SOLIDDemo.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// S — Single Responsibility</span>
+<span class="cmt">// ❌ Bad: UserService handles user logic AND sends emails</span>
+<span class="cmt">// ✅ Good: UserService for users, EmailService for emails</span>
+
+<span class="cmt">// O — Open/Closed (open to extend, closed to modify)</span>
+<span class="kw">interface</span> <span class="cls">Discount</span> { <span class="kw">double</span> <span class="fn">apply</span>(<span class="kw">double</span> price); }
+<span class="kw">class</span> <span class="cls">FlatDiscount</span>   <span class="kw">implements</span> <span class="cls">Discount</span> { ... } <span class="cmt">// extend, don't modify</span>
+<span class="kw">class</span> <span class="cls">PercentDiscount</span> <span class="kw">implements</span> <span class="cls">Discount</span> { ... }
+
+<span class="cmt">// L — Liskov Substitution</span>
+<span class="cmt">// Every subtype must be replaceable for its parent without breaking things</span>
+<span class="cls">Animal</span> a = <span class="kw">new</span> <span class="cls">Dog</span>(); <span class="cmt">// Dog must behave as Animal expects</span>
+
+<span class="cmt">// I — Interface Segregation</span>
+<span class="kw">interface</span> <span class="cls">Readable</span>  { <span class="cls">User</span> <span class="fn">findById</span>(<span class="cls">Long</span> id); }   <span class="cmt">// split!</span>
+<span class="kw">interface</span> <span class="cls">Writable</span>  { <span class="cls">User</span> <span class="fn">save</span>(<span class="cls">User</span> u); }
+
+<span class="cmt">// D — Dependency Inversion</span>
+<span class="cmt">// ❌ Bad</span>
+<span class="kw">class</span> <span class="cls">UserController</span> { <span class="kw">private</span> <span class="cls">UserServiceImpl</span> svc = <span class="kw">new</span> <span class="cls">UserServiceImpl</span>(); }
+<span class="cmt">// ✅ Good — depends on interface, Spring injects impl</span>
+<span class="kw">class</span> <span class="cls">UserController</span> {
+    <span class="kw">private final</span> <span class="cls">UserService</span> svc; <span class="cmt">// interface!</span>
+    <span class="kw">public</span> <span class="cls">UserController</span>(<span class="cls">UserService</span> svc) { <span class="kw">this</span>.svc = svc; }
+}</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">How have you applied SOLID in your project?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer (personalized for your Ford project)</div><div class="qa-a-tx">"In Ford Pro, I applied <strong>S</strong> by separating report generation from report delivery — one service assembled the data, another handled GCP Cloud Storage upload and Pub/Sub notification. <strong>D</strong> was achieved through Spring's DI — controllers depend on service interfaces, making unit testing with Mockito easy. <strong>O</strong> was used for our metric report types — each new report type extended a base interface without touching existing code."</div><div class="qa-tip">💡 Always tie SOLID back to your real project. Generic answers don't impress — specific ones do.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="topic">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔁</span>
+    <div class="topic-meta"><div class="topic-name">DRY — Don't Repeat Yourself</div><div class="topic-tagline">Eliminate duplication with abstraction</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Every piece of knowledge should have a <strong>single, unambiguous representation</strong> in a system. When you copy-paste logic, a bug fix in one place is missed in the others. DRY is about abstraction — extract repeated logic into a function, class, or constant.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">If you validate an email in 5 different controllers instead of a shared <code>EmailValidator</code> utility, that's DRY violation. When the email regex changes, you update 5 places and miss 2 — bugs appear.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#d946ef"></div>DRY.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// ❌ Violation — same logic duplicated</span>
+<span class="kw">class</span> <span class="cls">UserController</span>   { <span class="kw">if</span>(!email.<span class="fn">contains</span>(<span class="str">"@"</span>)) <span class="kw">throw</span> ...; }
+<span class="kw">class</span> <span class="cls">AdminController</span>  { <span class="kw">if</span>(!email.<span class="fn">contains</span>(<span class="str">"@"</span>)) <span class="kw">throw</span> ...; }
+<span class="kw">class</span> <span class="cls">SignupController</span> { <span class="kw">if</span>(!email.<span class="fn">contains</span>(<span class="str">"@"</span>)) <span class="kw">throw</span> ...; }
+
+<span class="cmt">// ✅ DRY — single source of truth</span>
+<span class="kw">class</span> <span class="cls">EmailValidator</span> {
+    <span class="kw">public static void</span> <span class="fn">validate</span>(<span class="cls">String</span> email) {
+        <span class="kw">if</span> (!email.<span class="fn">matches</span>(<span class="str">"^[\\w.-]+@[\\w.-]+\\.[a-z]{2,}$"</span>))
+            <span class="kw">throw new</span> <span class="cls">InvalidEmailException</span>(email);
+    }
+}
+<span class="cmt">// Spring Boot way: use @Valid + custom @ValidEmail annotation</span></pre></div>
+  </div>
+</div>
+
+<div class="topic">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">💋</span>
+    <div class="topic-meta"><div class="topic-name">KISS & YAGNI</div><div class="topic-tagline">Keep It Simple + You Aren't Gonna Need It</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>KISS</strong>: Keep It Simple, Stupid — prefer the simplest solution that works. Complex code is harder to debug, test, and maintain. <strong>YAGNI</strong>: You Aren't Gonna Need It — don't build features "just in case". Build what is needed now; add complexity when requirements actually arrive.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx"><strong>KISS violation:</strong> A junior dev builds a plugin system for a report generator that has 2 report types — over-engineering. <strong>YAGNI violation:</strong> Adding multi-currency support before a single customer asks for it. In Agile, YAGNI aligns with "just enough" — build for current sprint's requirements.</div></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">How do you balance YAGNI with good architecture?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Use <strong>interfaces and abstraction</strong> where change is likely (e.g., storage layer, payment gateway) but don't implement multiple strategies until needed. The abstraction costs almost nothing — the implementation costs time. "Make it work, make it right, then make it fast." Follow the Rule of Three: refactor to a general solution only after the third occurrence of similar code.</div><div class="qa-tip">💡 Say: "I follow YAGNI by writing only what's needed for the current story, but I use interfaces at integration boundaries so future extensions don't require rewriting existing code."</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end basic -->
+
+<div class="lsec" id="principles-1">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🏗️</span>
+    <div class="topic-meta"><div class="topic-name">Design Patterns — Singleton, Factory, Builder, Strategy</div><div class="topic-tagline">GoF patterns used daily in Spring Boot</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Design patterns are <strong>proven, reusable solutions</strong> to commonly occurring problems. Not specific code — rather templates for how to structure your classes. Categorized as Creational (how to create), Structural (how to compose), Behavioral (how to interact).</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#d946ef"></div>Patterns.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// SINGLETON — one instance (Spring beans are singleton by default)</span>
+<span class="kw">public enum</span> <span class="cls">AppConfig</span> { <span class="dec">INSTANCE</span>; <span class="cmt">// best singleton in Java</span>
+    <span class="kw">public</span> <span class="cls">String</span> <span class="fn">getDb</span>() { <span class="kw">return</span> <span class="cls">System</span>.<span class="fn">getenv</span>(<span class="str">"DB_URL"</span>); }
+}
+
+<span class="cmt">// FACTORY — create object without exposing creation logic</span>
+<span class="kw">class</span> <span class="cls">NotificationFactory</span> {
+    <span class="kw">public static</span> <span class="cls">Notification</span> <span class="fn">create</span>(<span class="cls">String</span> type) {
+        <span class="kw">return switch</span> (type) {
+            <span class="kw">case</span> <span class="str">"EMAIL"</span> -> <span class="kw">new</span> <span class="cls">EmailNotification</span>();
+            <span class="kw">case</span> <span class="str">"SMS"</span>   -> <span class="kw">new</span> <span class="cls">SmsNotification</span>();
+            <span class="kw">default</span> -> <span class="kw">throw new</span> <span class="cls">IllegalArgumentException</span>(type);
+        };
+    }
+}
+
+<span class="cmt">// BUILDER — complex object construction (Lombok @Builder)</span>
+<span class="cls">User</span> user = <span class="cls">User</span>.<span class="fn">builder</span>()
+    .<span class="fn">name</span>(<span class="str">"Srinivasan"</span>)
+    .<span class="fn">email</span>(<span class="str">"sri@ford.com"</span>)
+    .<span class="fn">role</span>(<span class="cls">Role</span>.<span class="dec">DEVELOPER</span>)
+    .<span class="fn">build</span>();
+
+<span class="cmt">// STRATEGY — swap algorithms at runtime</span>
+<span class="kw">interface</span> <span class="cls">SortStrategy</span> { <span class="kw">void</span> <span class="fn">sort</span>(<span class="cls">List</span>&lt;<span class="cls">Integer</span>&gt; list); }
+<span class="kw">class</span> <span class="cls">Sorter</span> {
+    <span class="kw">private</span> <span class="cls">SortStrategy</span> strategy;
+    <span class="kw">public void</span> <span class="fn">setStrategy</span>(<span class="cls">SortStrategy</span> s) { strategy = s; }
+    <span class="kw">public void</span> <span class="fn">sort</span>(<span class="cls">List</span>&lt;<span class="cls">Integer</span>&gt; l) { strategy.<span class="fn">sort</span>(l); }
+}</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What design patterns does Spring Boot use internally?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>Singleton</strong>: beans are singleton-scoped. <strong>Factory</strong>: BeanFactory/ApplicationContext creates beans. <strong>Proxy</strong>: @Transactional, @Cacheable, @Async use AOP proxies. <strong>Template Method</strong>: JdbcTemplate, RestTemplate. <strong>Observer</strong>: ApplicationEvent + @EventListener. <strong>Decorator</strong>: HttpServletRequestWrapper. <strong>Strategy</strong>: MessageConverter, HandlerMapping.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="lsec" id="principles-2">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔮</span>
+    <div class="topic-meta"><div class="topic-name">CAP Theorem & Eventual Consistency</div><div class="topic-tagline">Distributed systems — senior level</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>CAP Theorem</strong>: a distributed system can guarantee only 2 of 3 — <strong>C</strong>onsistency (all nodes see same data), <strong>A</strong>vailability (every request gets a response), <strong>P</strong>artition Tolerance (system works despite network failures). Since Partition is unavoidable in real networks, you choose CA or CP.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx"><strong>CP (Consistency + Partition)</strong>: Bank transactions — correctness over availability. HBase, ZooKeeper. <strong>AP (Availability + Partition)</strong>: Shopping cart, DNS, social media feeds — availability over consistency. DynamoDB, Cassandra. <strong>Eventual consistency</strong>: data will be consistent eventually, but not immediately.</div></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Why can't we have CAP — all three?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">During a <strong>network partition</strong>, nodes can't communicate. If you still serve requests (Available), different nodes will have different data (not Consistent). If you wait for consensus (Consistent), you can't serve requests (not Available). So you MUST sacrifice one when partition occurs.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div><!-- end principles -->
+
+
+<!-- ═══════════════════════════════════════════
+     CACHING
+═══════════════════════════════════════════ -->
+<div class="page" id="page-caching">
+<div class="hero">
+  <div class="hero-cat" style="color:var(--cy)">System Design</div>
+  <h1>Caching <em style="color:var(--cy)">Strategies</em></h1>
+  <p>Redis, cache invalidation, TTL, eviction policies — asked in every system design and backend interview.</p>
+</div>
+
+<div class="lsec active" id="caching-0">
+
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">⚡</span>
+    <div class="topic-meta"><div class="topic-name">What is Caching?</div><div class="topic-tagline">The most powerful performance optimization</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Caching stores <strong>frequently accessed data in fast memory</strong> (RAM) to avoid slow operations (DB queries, API calls). A cache hit returns data instantly; a cache miss fetches from the source. It's the most impactful performance optimization in backend systems.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">YouTube thumbnails are cached in CDN servers near you — not fetched from Google's datacentre every time. In Ford Pro, report data that doesn't change could be cached in Redis so repeated requests don't hit Firestore every time, reducing cost and latency.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#06b6d4"></div>SpringCaching.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Spring Boot Cache — @Cacheable</span>
+<span class="ann">@Service</span>
+<span class="kw">public class</span> <span class="cls">UserService</span> {
+
+    <span class="ann">@Cacheable</span>(value = <span class="str">"users"</span>, key = <span class="str">"#id"</span>)
+    <span class="kw">public</span> <span class="cls">User</span> <span class="fn">findById</span>(<span class="cls">Long</span> id) {
+        <span class="cmt">// called only on CACHE MISS — result stored in cache</span>
+        <span class="kw">return</span> userRepo.<span class="fn">findById</span>(id).<span class="fn">orElseThrow</span>();
+    }
+
+    <span class="ann">@CacheEvict</span>(value = <span class="str">"users"</span>, key = <span class="str">"#id"</span>)
+    <span class="kw">public void</span> <span class="fn">deleteUser</span>(<span class="cls">Long</span> id) {
+        userRepo.<span class="fn">deleteById</span>(id); <span class="cmt">// also removes from cache</span>
+    }
+
+    <span class="ann">@CachePut</span>(value = <span class="str">"users"</span>, key = <span class="str">"#result.id"</span>)
+    <span class="kw">public</span> <span class="cls">User</span> <span class="fn">update</span>(<span class="cls">User</span> user) {
+        <span class="kw">return</span> userRepo.<span class="fn">save</span>(user); <span class="cmt">// updates cache too</span>
+    }
+}
+
+<span class="cmt">// Redis config — application.yml</span>
+<span class="cmt">// spring.cache.type=redis</span>
+<span class="cmt">// spring.redis.host=localhost</span>
+<span class="cmt">// spring.redis.port=6379</span>
+<span class="cmt">// spring.cache.redis.time-to-live=600000  (10 min TTL)</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is cache invalidation and why is it hard?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Cache invalidation is <strong>removing stale data from the cache</strong> when the source data changes. It's considered one of the two hardest problems in CS (along with naming things). Challenges: (1) knowing WHEN data changed, (2) propagating invalidation to all cache nodes in distributed systems, (3) avoiding thundering herd (all requests hitting DB simultaneously after cache cleared).</div><div class="qa-tip">💡 Common strategies: TTL (time-to-live — expire after N seconds), event-driven invalidation (Kafka event triggers cache clear), write-through (update cache and DB simultaneously).</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Cache-aside vs Write-through vs Write-back — explain each</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>Cache-aside (Lazy)</strong>: app checks cache first, if miss fetches from DB and populates cache. Most common. Risk: cold start. <strong>Write-through</strong>: every write updates both cache and DB simultaneously. Always consistent but slower writes. <strong>Write-back (Write-behind)</strong>: write to cache immediately, async write to DB later. Fastest writes but data loss risk if cache fails before DB sync.</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What are cache eviction policies?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>LRU (Least Recently Used)</strong>: evict item not accessed for longest time. Most common — used in Redis. <strong>LFU (Least Frequently Used)</strong>: evict least accessed item. <strong>FIFO</strong>: evict oldest item. <strong>TTL</strong>: evict after time expires regardless of usage. Redis default is LRU. Use LFU when access frequency matters more than recency.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="lsec" id="caching-1">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔴</span>
+    <div class="topic-meta"><div class="topic-name">Redis — Advanced Patterns</div><div class="topic-tagline">Distributed cache, pub/sub, rate limiting</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Redis is an in-memory data store supporting Strings, Lists, Sets, Sorted Sets, Hashes, Streams. Used as a cache, session store, pub/sub message broker, distributed lock, rate limiter, and leaderboard. Data persists via RDB snapshots or AOF (Append Only File).</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#06b6d4"></div>RedisPatterns.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Rate limiting with Redis</span>
+<span class="kw">public boolean</span> <span class="fn">isAllowed</span>(<span class="cls">String</span> userId) {
+    <span class="cls">String</span> key = <span class="str">"rate:"</span> + userId;
+    <span class="cls">Long</span> count = redisTemplate.<span class="fn">opsForValue</span>().<span class="fn">increment</span>(key);
+    <span class="kw">if</span> (count == <span class="num">1</span>) redisTemplate.<span class="fn">expire</span>(key, <span class="num">60</span>, <span class="cls">TimeUnit</span>.<span class="dec">SECONDS</span>);
+    <span class="kw">return</span> count <= <span class="num">100</span>; <span class="cmt">// 100 req/min</span>
+}
+
+<span class="cmt">// Distributed lock</span>
+<span class="kw">boolean</span> locked = redisTemplate.<span class="fn">opsForValue</span>()
+    .<span class="fn">setIfAbsent</span>(<span class="str">"lock:resource"</span>, <span class="str">"1"</span>, <span class="num">30</span>, <span class="cls">TimeUnit</span>.<span class="dec">SECONDS</span>);
+<span class="kw">if</span> (!locked) <span class="kw">throw new</span> <span class="cls">LockException</span>(<span class="str">"Resource busy"</span>);
+
+<span class="cmt">// Session store</span>
+<span class="cmt">// spring.session.store-type=redis</span>
+<span class="cmt">// → sessions stored in Redis, works across multiple app instances</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">How does Redis handle persistence — RDB vs AOF?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>RDB (Redis Database)</strong>: periodic snapshots (e.g., every 5 min). Fast restore, but may lose last 5 min data on crash. <strong>AOF (Append Only File)</strong>: logs every write command. More durable (can replay from log), but larger files and slower. <strong>Hybrid</strong>: use both — AOF for durability, RDB for fast restart. For cache-only Redis, no persistence needed.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="caching-2">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🛡️</span>
+    <div class="topic-meta"><div class="topic-name">Cache Stampede & Thundering Herd</div><div class="topic-tagline">Production problems every senior must know</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Cache stampede</strong> (thundering herd): when a popular cache key expires, hundreds of requests simultaneously hit the database to rebuild it — overloading the DB. Solutions: <strong>probabilistic early expiration</strong>, <strong>mutex locking</strong> (only one request rebuilds, others wait), or <strong>staggered TTLs</strong>.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#06b6d4"></div>StampedeProtection.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Mutex pattern — only one thread rebuilds cache</span>
+<span class="kw">public</span> <span class="cls">Data</span> <span class="fn">getData</span>(<span class="cls">String</span> key) {
+    <span class="cls">Data</span> cached = redis.<span class="fn">get</span>(key);
+    <span class="kw">if</span> (cached != <span class="kw">null</span>) <span class="kw">return</span> cached;
+
+    <span class="cls">String</span> lockKey = <span class="str">"lock:"</span> + key;
+    <span class="kw">boolean</span> lock = redis.<span class="fn">setIfAbsent</span>(lockKey, <span class="str">"1"</span>, <span class="num">10</span>, <span class="cls">TimeUnit</span>.<span class="dec">SECONDS</span>);
+    <span class="kw">if</span> (lock) {
+        <span class="kw">try</span> {
+            <span class="cls">Data</span> fresh = db.<span class="fn">fetch</span>(key);   <span class="cmt">// only ONE thread does this</span>
+            redis.<span class="fn">set</span>(key, fresh, <span class="num">300</span>, <span class="cls">TimeUnit</span>.<span class="dec">SECONDS</span>);
+            <span class="kw">return</span> fresh;
+        } <span class="kw">finally</span> { redis.<span class="fn">delete</span>(lockKey); }
+    } <span class="kw">else</span> {
+        <span class="cls">Thread</span>.<span class="fn">sleep</span>(<span class="num">100</span>);  <span class="cmt">// others wait briefly</span>
+        <span class="kw">return</span> <span class="fn">getData</span>(key); <span class="cmt">// retry — cache should be warm</span>
+    }
+}</pre></div>
+  </div>
+</div>
+</div>
+</div><!-- end caching -->
+
+
+<!-- ═══════════════════════════════════════════
+     LOAD BALANCING
+═══════════════════════════════════════════ -->
+<div class="page" id="page-lb">
+<div class="hero">
+  <div class="hero-cat" style="color:var(--gr)">System Design</div>
+  <h1>Load <em style="color:var(--gr)">Balancing</em></h1>
+  <p>How traffic is distributed across servers — algorithms, types, health checks, and sticky sessions.</p>
+</div>
+
+<div class="lsec active" id="lb-0">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">⚖️</span>
+    <div class="topic-meta"><div class="topic-name">What is Load Balancing?</div><div class="topic-tagline">Scale horizontally, eliminate single point of failure</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Load balancing <strong>distributes incoming requests across multiple servers</strong> to prevent overload, ensure high availability, and improve throughput. It eliminates single points of failure. Can operate at Layer 4 (TCP/IP) or Layer 7 (HTTP/application) of the OSI model.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">When you access google.com, your request doesn't go to one server — it hits a load balancer that routes you to one of thousands of servers. If one server crashes, the load balancer stops sending traffic to it (health check fails) and routes to healthy servers.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#22c55e"></div>LoadBalancingAlgorithms.txt</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// ALGORITHMS</span>
+
+<span class="dec">Round Robin</span>: requests go 1→2→3→1→2→3 sequentially
+  Best for: homogeneous servers, stateless apps
+
+<span class="dec">Weighted Round Robin</span>: powerful servers get more requests
+  Server A (8 core) = weight 4, Server B (4 core) = weight 2
+
+<span class="dec">Least Connections</span>: route to server with fewest active connections
+  Best for: long-lived requests (file uploads, WebSockets)
+
+<span class="dec">IP Hash</span>: same client IP always → same server (sticky)
+  Best for: stateful sessions without Redis
+
+<span class="dec">Random</span>: pick random server. Simple, works well at scale
+
+<span class="dec">Consistent Hashing</span>: used in distributed caches (Redis Cluster)
+  Minimises remapping when nodes added/removed</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is a sticky session and when would you use it?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Sticky session (session affinity) routes a user's requests to the <strong>same server</strong> every time, using a cookie or IP hash. Use it when server-side state (in-memory session) can't be moved to a shared store. <strong>Downside</strong>: if that server crashes, session is lost; uneven load distribution. <strong>Better approach</strong>: store sessions in Redis so any server can handle any request.</div><div class="qa-tip">💡 "At Ford, we used Spring Session with Redis — sessions are centrally stored, allowing any of our instances to serve any request. No sticky sessions needed."</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">L4 vs L7 Load Balancer — difference?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>L4 (Transport layer)</strong>: routes based on IP and port only — can't inspect HTTP content. Faster, simpler. AWS NLB (Network Load Balancer). <strong>L7 (Application layer)</strong>: can inspect HTTP headers, URL paths, cookies. Enables path-based routing (/api → service1, /admin → service2), SSL termination, rate limiting. AWS ALB, Nginx, Spring Cloud Gateway. In microservices, API Gateway is an L7 LB.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="lb-1">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🏥</span>
+    <div class="topic-meta"><div class="topic-name">Health Checks & Circuit Breaker</div><div class="topic-tagline">How load balancers detect and handle failures</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Health checks</strong>: load balancer periodically pings each server (e.g., GET /actuator/health). If a server fails N checks, it's removed from rotation. <strong>Circuit Breaker</strong>: when a downstream service is failing, stop sending requests immediately (open circuit) and return a fallback — prevents cascading failures.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#22c55e"></div>CircuitBreaker.java (Resilience4j)</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="ann">@Service</span>
+<span class="kw">public class</span> <span class="cls">OrderService</span> {
+
+    <span class="ann">@CircuitBreaker</span>(name = <span class="str">"inventoryService"</span>, fallbackMethod = <span class="str">"fallback"</span>)
+    <span class="ann">@Retry</span>(name = <span class="str">"inventoryService"</span>)
+    <span class="ann">@TimeLimiter</span>(name = <span class="str">"inventoryService"</span>)
+    <span class="kw">public</span> <span class="cls">Inventory</span> <span class="fn">checkStock</span>(<span class="cls">Long</span> productId) {
+        <span class="kw">return</span> inventoryClient.<span class="fn">getStock</span>(productId); <span class="cmt">// may fail</span>
+    }
+
+    <span class="kw">public</span> <span class="cls">Inventory</span> <span class="fn">fallback</span>(<span class="cls">Long</span> id, <span class="cls">Exception</span> e) {
+        <span class="kw">return</span> <span class="cls">Inventory</span>.<span class="fn">builder</span>().<span class="fn">available</span>(<span class="kw">false</span>).<span class="fn">build</span>();
+    }
+}
+<span class="cmt">// CB states: CLOSED (normal) → OPEN (failing, use fallback)</span>
+<span class="cmt">// → HALF_OPEN (test if recovered) → CLOSED or OPEN</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is the difference between Circuit Breaker, Retry, and Timeout?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>Timeout</strong>: fail fast if response takes too long — prevents threads being stuck forever. <strong>Retry</strong>: automatically retry failed requests N times with backoff — handles transient failures. <strong>Circuit Breaker</strong>: after N failures, stop trying entirely and use fallback — prevents flooding a broken service. Use all three together (Resilience4j supports this).</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="lb-2">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔀</span>
+    <div class="topic-meta"><div class="topic-name">Consistent Hashing</div><div class="topic-tagline">How distributed caches scale without reshuffling everything</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Consistent hashing places both servers and keys on a <strong>virtual ring</strong>. A key maps to the nearest clockwise server. When a server is added/removed, only keys in that portion of the ring re-map — minimizing redistribution (~1/N of keys, not all).</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">Redis Cluster uses consistent hashing with 16,384 hash slots. When you add a new Redis node, only some slots (and their keys) migrate — not the whole dataset. Used in DynamoDB, Cassandra, Memcached, Nginx upstreams.</div></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Why use consistent hashing instead of modulo hashing?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">With modulo hashing (key % N servers), adding a server changes N — almost <strong>every key remaps</strong>. With a 10-server cluster adding one server, 90% of cached keys would need to move, causing a massive cache miss storm. Consistent hashing limits redistribution to ~1/N keys — adding 1 server to a 10-server cluster moves only ~10% of keys.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div><!-- end lb -->
+
+
+<!-- ═══════════════════════════════════════════
+     MESSAGE QUEUES
+═══════════════════════════════════════════ -->
+<div class="page" id="page-mq">
+<div class="hero">
+  <div class="hero-cat" style="color:var(--or)">System Design</div>
+  <h1>Message <em style="color:var(--or)">Queues</em></h1>
+  <p>Kafka, RabbitMQ, async communication patterns — essential for microservices and distributed systems design interviews.</p>
+</div>
+
+<div class="lsec active" id="mq-0">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">📨</span>
+    <div class="topic-meta"><div class="topic-name">What is a Message Queue?</div><div class="topic-tagline">Decouple services, handle spikes, ensure delivery</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">A message queue enables <strong>asynchronous communication</strong> between services. Producer sends a message to the queue; consumer reads and processes it independently. This <strong>decouples</strong> services (producer doesn't wait for consumer), handles <strong>traffic spikes</strong> (queue absorbs bursts), and ensures <strong>reliable delivery</strong> even if consumer is temporarily down.</div></div>
+    <div class="rw"><div class="rw-lbl">🌍 Real-world Example</div><div class="rw-tx">When you place an Amazon order: the Order Service immediately returns "Order placed!" and sends an event to a queue. The <strong>Inventory Service</strong>, <strong>Email Service</strong>, and <strong>Shipping Service</strong> each consume the event independently and asynchronously. User gets instant response; complex processing happens in the background.</div></div>
+    <div class="cmp">
+      <div class="cmp-b"><div class="cmp-hd"><span style="color:#f97316">📨</span> Kafka</div>
+        <div class="cmp-r">Distributed log — retain messages for days/weeks</div>
+        <div class="cmp-r">Millions of messages/sec throughput</div>
+        <div class="cmp-r">Consumer tracks its own offset (position)</div>
+        <div class="cmp-r">Best for event streaming, analytics, audit log</div>
+        <div class="cmp-r">Messages not deleted after consumption</div>
+      </div>
+      <div class="cmp-b"><div class="cmp-hd"><span style="color:#f97316">🐰</span> RabbitMQ</div>
+        <div class="cmp-r">Traditional message broker — push model</div>
+        <div class="cmp-r">Complex routing (exchanges, bindings)</div>
+        <div class="cmp-r">Messages deleted after ACK from consumer</div>
+        <div class="cmp-r">Best for task queues, RPC patterns</div>
+        <div class="cmp-r">Easier to set up for simple use cases</div>
+      </div>
+    </div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f97316"></div>KafkaSpring.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Producer</span>
+<span class="ann">@Service</span>
+<span class="kw">public class</span> <span class="cls">OrderService</span> {
+    <span class="ann">@Autowired</span>
+    <span class="kw">private</span> <span class="cls">KafkaTemplate</span>&lt;<span class="cls">String</span>, <span class="cls">OrderEvent</span>&gt; kafka;
+
+    <span class="kw">public void</span> <span class="fn">placeOrder</span>(<span class="cls">Order</span> order) {
+        orderRepo.<span class="fn">save</span>(order);
+        kafka.<span class="fn">send</span>(<span class="str">"orders"</span>, order.<span class="fn">getId</span>().<span class="fn">toString</span>(), <span class="kw">new</span> <span class="cls">OrderEvent</span>(order));
+        <span class="cmt">// returns immediately — consumer processes async</span>
+    }
+}
+
+<span class="cmt">// Consumer</span>
+<span class="ann">@Component</span>
+<span class="kw">public class</span> <span class="cls">InventoryConsumer</span> {
+    <span class="ann">@KafkaListener</span>(topics = <span class="str">"orders"</span>, groupId = <span class="str">"inventory-group"</span>)
+    <span class="kw">public void</span> <span class="fn">handleOrder</span>(<span class="cls">OrderEvent</span> event) {
+        inventoryService.<span class="fn">reduce</span>(event.<span class="fn">getProductId</span>(), event.<span class="fn">getQty</span>());
+    }
+}
+<span class="cmt">// GCP equivalent: Cloud Pub/Sub (you used this at Ford!)</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is at-least-once vs at-most-once vs exactly-once delivery?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>At-most-once</strong>: message delivered 0 or 1 time — fire and forget, may lose messages. <strong>At-least-once</strong>: message delivered 1+ times — no loss, but duplicates possible. Consumer must be <strong>idempotent</strong> (processing same message twice has same effect as once). <strong>Exactly-once</strong>: guaranteed once — hardest, Kafka supports it with transactions + idempotent producers (high overhead).</div><div class="qa-tip">💡 "In Ford's Pub/Sub pipeline, we used at-least-once delivery with idempotent consumers — checking if the report was already generated before re-generating."</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is Kafka's consumer group and partition?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">A <strong>partition</strong> is an ordered, immutable sequence of messages in a topic. Messages within a partition maintain order. A <strong>consumer group</strong>: multiple consumers sharing the workload — each partition is consumed by exactly one consumer in a group. Adding consumers to a group = horizontal scaling. Messages are <strong>replayed</strong> by setting offset back — great for bug fixes and re-processing.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="mq-1">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">📬</span>
+    <div class="topic-meta"><div class="topic-name">Dead Letter Queue & Poison Messages</div><div class="topic-tagline">What happens when a consumer can't process a message?</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">A <strong>Dead Letter Queue (DLQ)</strong> is where messages go after failing processing N times. A <strong>poison message</strong> is one that always fails (e.g., bad data format, bug). Without DLQ, poison messages block the queue forever. DLQ lets you isolate failures, alert on them, and reprocess after fixing the bug.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f97316"></div>DLQ_Config.java</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Spring Kafka — DLQ config</span>
+<span class="ann">@Bean</span>
+<span class="kw">public</span> <span class="cls">DefaultErrorHandler</span> <span class="fn">errorHandler</span>(<span class="cls">DeadLetterPublishingRecoverer</span> dlpr) {
+    <span class="kw">return new</span> <span class="cls">DefaultErrorHandler</span>(dlpr,
+        <span class="kw">new</span> <span class="cls">ExponentialBackOff</span>(<span class="num">1000L</span>, <span class="num">2.0</span>)); <span class="cmt">// retry with backoff</span>
+    <span class="cmt">// after retries exhausted → message sent to orders.DLT topic</span>
+}
+<span class="cmt">// Monitor DLT: alert on any message, inspect + replay after fix</span></pre></div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="mq-2">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔄</span>
+    <div class="topic-meta"><div class="topic-name">Outbox Pattern & Saga</div><div class="topic-tagline">Distributed transaction patterns without 2PC</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Outbox Pattern</strong>: instead of publishing to Kafka directly (which may fail separately from DB), write the event to an <strong>outbox table</strong> in the same DB transaction as your business data. A separate relay reads the outbox and publishes to Kafka. Guarantees atomicity. <strong>Saga</strong>: breaks a distributed transaction into local transactions with compensating rollbacks.</div></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Why not use 2PC (two-phase commit) in microservices?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">2PC requires all participants to lock resources until the coordinator confirms. In microservices: (1) a slow/failed coordinator blocks all services, (2) it's synchronous — kills throughput, (3) doesn't work across different database technologies. The Saga pattern with compensation is preferred — each service does its work locally and compensates on failure, without distributed locks.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div><!-- end mq -->
+
+
+<!-- ═══════════════════════════════════════════
+     SQL
+═══════════════════════════════════════════ -->
+<div class="page" id="page-sql">
+<div class="hero">
+  <div class="hero-cat" style="color:var(--acc)">SQL & Databases</div>
+  <h1>SQL <em style="color:var(--acc2)">Deep Dive</em></h1>
+  <p>Joins, indexes, window functions, transactions, query optimization — every question from basic SELECT to advanced analytics.</p>
+</div>
+
+<div class="lsec active" id="sql-0">
+
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔗</span>
+    <div class="topic-meta"><div class="topic-name">SQL JOINs — All Types</div><div class="topic-tagline">Most tested SQL topic in every interview</div></div>
+    <span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">JOINs combine rows from two or more tables based on a related column. <strong>INNER JOIN</strong>: only matching rows. <strong>LEFT JOIN</strong>: all rows from left + matches from right (null if no match). <strong>RIGHT JOIN</strong>: reverse. <strong>FULL OUTER JOIN</strong>: all rows from both, nulls where no match. <strong>CROSS JOIN</strong>: every combination (Cartesian product).</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#5b8dee"></div>joins.sql</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">-- INNER JOIN: users who have orders</span>
+<span class="kw">SELECT</span> u.name, o.total
+<span class="kw">FROM</span> users u
+<span class="kw">INNER JOIN</span> orders o <span class="kw">ON</span> u.id = o.user_id;
+
+<span class="cmt">-- LEFT JOIN: ALL users, even those without orders</span>
+<span class="kw">SELECT</span> u.name, <span class="fn">COUNT</span>(o.id) <span class="kw">AS</span> order_count
+<span class="kw">FROM</span> users u
+<span class="kw">LEFT JOIN</span> orders o <span class="kw">ON</span> u.id = o.user_id
+<span class="kw">GROUP BY</span> u.id, u.name;
+
+<span class="cmt">-- SELF JOIN: find employees and their managers</span>
+<span class="kw">SELECT</span> e.name <span class="kw">AS</span> employee, m.name <span class="kw">AS</span> manager
+<span class="kw">FROM</span> employees e
+<span class="kw">LEFT JOIN</span> employees m <span class="kw">ON</span> e.manager_id = m.id;
+
+<span class="cmt">-- Find users with NO orders (LEFT JOIN trick)</span>
+<span class="kw">SELECT</span> u.name
+<span class="kw">FROM</span> users u
+<span class="kw">LEFT JOIN</span> orders o <span class="kw">ON</span> u.id = o.user_id
+<span class="kw">WHERE</span> o.id <span class="kw">IS NULL</span>;</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is the difference between WHERE and HAVING?</span><span class="qa-q-d d-e">Easy</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>WHERE</strong>: filters rows BEFORE grouping (before GROUP BY). Cannot use aggregate functions. <strong>HAVING</strong>: filters AFTER grouping (after GROUP BY). Can use aggregate functions like COUNT, SUM.</div><div class="qa-code"><span class="cmt">-- Users with more than 5 orders</span>
+<span class="kw">SELECT</span> user_id, <span class="fn">COUNT</span>(*) <span class="kw">AS</span> cnt
+<span class="kw">FROM</span> orders
+<span class="kw">WHERE</span> status = <span class="str">'COMPLETED'</span>   <span class="cmt">-- filter rows first</span>
+<span class="kw">GROUP BY</span> user_id
+<span class="kw">HAVING</span> <span class="fn">COUNT</span>(*) > <span class="num">5</span>;         <span class="cmt">-- then filter groups</span></div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is the difference between DELETE, TRUNCATE, and DROP?</span><span class="qa-q-d d-e">Easy</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>DELETE</strong>: removes rows with WHERE condition, can rollback, fires triggers, logs each row. <strong>TRUNCATE</strong>: removes ALL rows, cannot rollback (DDL), no triggers, resets identity/auto-increment, much faster. <strong>DROP</strong>: removes the entire table structure + data permanently.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="topic">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">📋</span>
+    <div class="topic-meta"><div class="topic-name">Indexes — How & When to Use</div><div class="topic-tagline">The most impactful database performance tool</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">An index is a <strong>data structure (B-Tree by default in PostgreSQL)</strong> that speeds up data retrieval. Like a book's index — instead of scanning every page (full table scan), jump directly to the page. Indexes speed up reads but <strong>slow down writes</strong> (index must be updated on every INSERT/UPDATE/DELETE).</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#5b8dee"></div>indexes.sql</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">-- Basic index</span>
+<span class="kw">CREATE INDEX</span> idx_users_email <span class="kw">ON</span> users(email);
+
+<span class="cmt">-- Composite index (order matters! email+status != status+email)</span>
+<span class="kw">CREATE INDEX</span> idx_orders_user_status <span class="kw">ON</span> orders(user_id, status);
+
+<span class="cmt">-- Partial index (only index active users)</span>
+<span class="kw">CREATE INDEX</span> idx_active_users <span class="kw">ON</span> users(email) <span class="kw">WHERE</span> active = <span class="kw">true</span>;
+
+<span class="cmt">-- Unique index</span>
+<span class="kw">CREATE UNIQUE INDEX</span> idx_users_email_unique <span class="kw">ON</span> users(email);
+
+<span class="cmt">-- EXPLAIN ANALYZE — check if index is being used</span>
+<span class="fn">EXPLAIN</span> <span class="fn">ANALYZE</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> users <span class="kw">WHERE</span> email = <span class="str">'test@ford.com'</span>;
+<span class="cmt">-- Look for "Index Scan" (good) vs "Seq Scan" (no index used)</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">When should you NOT add an index?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">(1) Small tables — full scan is faster than index lookup. (2) <strong>Low cardinality columns</strong> — indexing a boolean (only 2 values) is useless, DB still scans 50% of rows. (3) <strong>Frequently written tables</strong> — every INSERT/UPDATE updates the index. (4) Columns never used in WHERE/JOIN/ORDER BY. Rule: add indexes when you see slow queries via EXPLAIN ANALYZE, not preemptively.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- end basic -->
+
+<div class="lsec" id="sql-1">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🪟</span>
+    <div class="topic-meta"><div class="topic-name">Window Functions</div><div class="topic-tagline">ROW_NUMBER, RANK, LAG, LEAD — advanced analytics</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Window functions perform calculations <strong>across a set of rows related to the current row</strong> — without collapsing rows like GROUP BY does. Using <code>OVER (PARTITION BY ... ORDER BY ...)</code> syntax. Essential for ranking, running totals, moving averages, and row comparison.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#5b8dee"></div>window_functions.sql</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">-- ROW_NUMBER: unique rank per partition</span>
+<span class="kw">SELECT</span> name, dept, salary,
+    <span class="fn">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION BY</span> dept <span class="kw">ORDER BY</span> salary <span class="kw">DESC</span>) <span class="kw">AS</span> rank
+<span class="kw">FROM</span> employees;
+
+<span class="cmt">-- Get top earner per department</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> (
+    <span class="kw">SELECT</span> *, <span class="fn">ROW_NUMBER</span>() <span class="kw">OVER</span> (<span class="kw">PARTITION BY</span> dept <span class="kw">ORDER BY</span> salary <span class="kw">DESC</span>) rn
+    <span class="kw">FROM</span> employees
+) <span class="kw">WHERE</span> rn = <span class="num">1</span>;
+
+<span class="cmt">-- Running total</span>
+<span class="kw">SELECT</span> date, amount,
+    <span class="fn">SUM</span>(amount) <span class="kw">OVER</span> (<span class="kw">ORDER BY</span> date) <span class="kw">AS</span> running_total
+<span class="kw">FROM</span> sales;
+
+<span class="cmt">-- LAG/LEAD: compare with previous/next row</span>
+<span class="kw">SELECT</span> date, revenue,
+    <span class="fn">LAG</span>(revenue, <span class="num">1</span>) <span class="kw">OVER</span> (<span class="kw">ORDER BY</span> date) <span class="kw">AS</span> prev_revenue,
+    revenue - <span class="fn">LAG</span>(revenue, <span class="num">1</span>) <span class="kw">OVER</span> (<span class="kw">ORDER BY</span> date) <span class="kw">AS</span> growth
+<span class="kw">FROM</span> monthly_revenue;</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Difference between ROW_NUMBER, RANK, and DENSE_RANK?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">For salaries [100, 90, 90, 80]: <strong>ROW_NUMBER</strong>: 1,2,3,4 (always unique, no ties). <strong>RANK</strong>: 1,2,2,4 (ties share rank, next rank skipped). <strong>DENSE_RANK</strong>: 1,2,2,3 (ties share rank, next rank NOT skipped). Use RANK for competition leaderboards. Use DENSE_RANK when you want no gaps. Use ROW_NUMBER for pagination.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="sql-2">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🔒</span>
+    <div class="topic-meta"><div class="topic-name">Transactions, ACID & Isolation Levels</div><div class="topic-tagline">Database correctness guarantees</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>ACID</strong>: <strong>A</strong>tomicity (all or nothing), <strong>C</strong>onsistency (data remains valid), <strong>I</strong>solation (concurrent transactions don't interfere), <strong>D</strong>urability (committed data survives crashes). Isolation levels control how much concurrent transactions see each other's uncommitted changes.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#5b8dee"></div>transactions.sql</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">-- Isolation levels (from weakest to strongest)</span>
+<span class="kw">SET</span> TRANSACTION ISOLATION LEVEL READ COMMITTED; <span class="cmt">-- PostgreSQL default</span>
+
+<span class="cmt">-- Problems by isolation level:</span>
+<span class="cmt">-- READ UNCOMMITTED: dirty reads (see uncommitted changes)</span>
+<span class="cmt">-- READ COMMITTED:   no dirty reads, but non-repeatable reads</span>
+<span class="cmt">-- REPEATABLE READ:  same rows each read, but phantom reads</span>
+<span class="cmt">-- SERIALIZABLE:     fully isolated, but slowest</span>
+
+<span class="cmt">-- Bank transfer — ACID example</span>
+<span class="kw">BEGIN</span>;
+  <span class="kw">UPDATE</span> accounts <span class="kw">SET</span> balance = balance - <span class="num">1000</span> <span class="kw">WHERE</span> id = <span class="num">1</span>;
+  <span class="kw">UPDATE</span> accounts <span class="kw">SET</span> balance = balance + <span class="num">1000</span> <span class="kw">WHERE</span> id = <span class="num">2</span>;
+<span class="kw">COMMIT</span>; <span class="cmt">-- both updates succeed, or ROLLBACK both</span></pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is a dirty read, non-repeatable read, and phantom read?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>Dirty read</strong>: reading data from a transaction that hasn't committed yet — that transaction might rollback, leaving you with invalid data. <strong>Non-repeatable read</strong>: read same row twice in a transaction, get different values (another transaction modified it between reads). <strong>Phantom read</strong>: run same query twice, get different number of rows (another transaction inserted/deleted rows between your reads).</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div><!-- end sql -->
+
+
+<!-- ═══════════════════════════════════════════
+     REACT
+═══════════════════════════════════════════ -->
+<div class="page" id="page-react">
+<div class="hero">
+  <div class="hero-cat" style="color:var(--cy)">Web Frontend</div>
+  <h1>ReactJS <em style="color:var(--cy)">+ Hooks</em></h1>
+  <p>Hooks, state management, lifecycle, performance — what every React developer is tested on.</p>
+</div>
+<div class="lsec active" id="react-0">
+
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🪝</span>
+    <div class="topic-meta"><div class="topic-name">React Hooks — useState, useEffect, useRef, useMemo</div><div class="topic-tagline">Hooks are the core of modern React</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Hooks are functions that let you <strong>use state and React features in functional components</strong>. <code>useState</code>: local component state. <code>useEffect</code>: side effects (API calls, subscriptions). <code>useRef</code>: mutable reference that doesn't trigger re-render. <code>useMemo/useCallback</code>: memoize expensive computations/functions.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#06b6d4"></div>HooksDemo.jsx</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="kw">import</span> { useState, useEffect, useRef, useMemo } <span class="kw">from</span> <span class="str">'react'</span>;
+
+<span class="kw">function</span> <span class="fn">UserList</span>({ departmentId }) {
+  <span class="kw">const</span> [users, setUsers] = <span class="fn">useState</span>([]);
+  <span class="kw">const</span> [loading, setLoading] = <span class="fn">useState</span>(<span class="kw">true</span>);
+  <span class="kw">const</span> inputRef = <span class="fn">useRef</span>(<span class="kw">null</span>); <span class="cmt">// access DOM directly</span>
+
+  <span class="fn">useEffect</span>(() => {       <span class="cmt">// runs after render</span>
+    setLoading(<span class="kw">true</span>);
+    <span class="fn">fetchUsers</span>(departmentId)
+      .<span class="fn">then</span>(data => { setUsers(data); setLoading(<span class="kw">false</span>); });
+    <span class="kw">return</span> () => { <span class="cmt">/* cleanup: cancel API call on unmount */</span> };
+  }, [departmentId]); <span class="cmt">// dep array: re-run when departmentId changes</span>
+
+  <span class="cmt">// useMemo: only recalculate when users changes</span>
+  <span class="kw">const</span> activeUsers = <span class="fn">useMemo</span>(
+    () => users.<span class="fn">filter</span>(u => u.active),
+    [users]
+  );
+
+  <span class="kw">if</span> (loading) <span class="kw">return</span> &lt;div&gt;Loading...&lt;/div&gt;;
+  <span class="kw">return</span> &lt;ul&gt;{activeUsers.<span class="fn">map</span>(u => &lt;li key={u.id}&gt;{u.name}&lt;/li&gt;)}&lt;/ul&gt;;
+}</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is the difference between useMemo and useCallback?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>useMemo</strong>: memoizes the <strong>result</strong> of a function — returns a cached value. Use for expensive calculations. <strong>useCallback</strong>: memoizes the <strong>function itself</strong> — returns the same function reference. Use when passing callbacks to child components to prevent unnecessary re-renders.</div><div class="qa-code"><span class="kw">const</span> expensiveResult = <span class="fn">useMemo</span>(() => <span class="fn">heavyCalc</span>(data), [data]);
+<span class="kw">const</span> handleClick = <span class="fn">useCallback</span>(() => <span class="fn">doSomething</span>(id), [id]);</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">When does useEffect run? Explain dependency array scenarios.</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><code>useEffect(fn)</code> — no array: runs after EVERY render (rarely what you want). <code>useEffect(fn, [])</code> — empty array: runs ONCE after mount (componentDidMount equivalent). <code>useEffect(fn, [dep1, dep2])</code> — runs after mount and whenever dep1 or dep2 changes. Return a cleanup function for subscriptions, timers, API cancellations.</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is Virtual DOM and how does React's reconciliation work?</span><span class="qa-q-d d-h">Hard</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Virtual DOM is a lightweight JS copy of the real DOM. When state changes: (1) React creates a new Virtual DOM tree, (2) <strong>Diffing algorithm</strong> compares new vs old VDOM (O(n) using heuristics), (3) only the changed nodes get updated in the real DOM. This batching + minimal DOM updates is what makes React fast. The key prop helps React identify which list items changed.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="lsec" id="react-1">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🗃️</span>
+    <div class="topic-meta"><div class="topic-name">Redux & Context API — State Management</div><div class="topic-tagline">When and how to manage global state</div></div>
+    <span class="topic-diff d-m">Medium</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Context API</strong>: built-in React way to share data across component tree without prop drilling. Good for low-frequency updates (theme, user auth). <strong>Redux</strong>: external state management with a single store, actions, reducers, and middleware. Better for complex state with many updates. Redux Toolkit simplifies Redux significantly.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#06b6d4"></div>Redux Toolkit</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Redux Toolkit slice</span>
+<span class="kw">const</span> userSlice = <span class="fn">createSlice</span>({
+  name: <span class="str">'user'</span>,
+  initialState: { data: <span class="kw">null</span>, loading: <span class="kw">false</span> },
+  reducers: {
+    <span class="fn">setUser</span>: (state, action) => { state.data = action.payload; },
+    <span class="fn">clearUser</span>: (state) => { state.data = <span class="kw">null</span>; }
+  }
+});
+<span class="kw">export const</span> { setUser, clearUser } = userSlice.actions;
+
+<span class="cmt">// Async thunk</span>
+<span class="kw">export const</span> fetchUser = <span class="fn">createAsyncThunk</span>(<span class="str">'user/fetch'</span>,
+  <span class="kw">async</span> (id) => { <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">api</span>(<span class="str">`/users/${id}`</span>); <span class="kw">return</span> res.data; }
+);
+
+<span class="cmt">// In component</span>
+<span class="kw">const</span> user = <span class="fn">useSelector</span>(state => state.user.data);
+<span class="kw">const</span> dispatch = <span class="fn">useDispatch</span>();
+<span class="fn">dispatch</span>(<span class="fn">fetchUser</span>(<span class="num">123</span>));</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Context API vs Redux — when to use which?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Use <strong>Context</strong> for: low-frequency global data (theme, locale, auth user). Simple, no extra libraries. <strong>Redux</strong> for: complex state logic, many components need same data with high update frequency, need time-travel debugging, need middleware (logging, async). Context re-renders all consumers on every change — Redux's useSelector is more granular.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="react-2">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)">
+    <span class="topic-ico">🚀</span>
+    <div class="topic-meta"><div class="topic-name">React Performance Optimization</div><div class="topic-tagline">memo, lazy, Suspense, code splitting</div></div>
+    <span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span>
+  </div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>React.memo</strong>: HOC that prevents re-render if props haven't changed. <strong>lazy + Suspense</strong>: code splitting — load components only when needed (reduces initial bundle). <strong>Virtualization</strong>: only render visible list items (react-window) — essential for 1000+ row lists.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#06b6d4"></div>Performance.jsx</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// React.memo — prevent re-render when props same</span>
+<span class="kw">const</span> <span class="cls">UserCard</span> = <span class="cls">React</span>.<span class="fn">memo</span>(({ user }) => &lt;div&gt;{user.name}&lt;/div&gt;);
+
+<span class="cmt">// Code splitting with lazy + Suspense</span>
+<span class="kw">const</span> <span class="cls">Dashboard</span> = <span class="cls">React</span>.<span class="fn">lazy</span>(() => <span class="fn">import</span>(<span class="str">'./Dashboard'</span>));
+<span class="kw">function</span> <span class="fn">App</span>() {
+  <span class="kw">return</span> (
+    &lt;<span class="cls">Suspense</span> fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+      &lt;<span class="cls">Dashboard</span> /&gt;
+    &lt;/<span class="cls">Suspense</span>&gt;
+  );
+}
+
+<span class="cmt">// List virtualization (only render visible rows)</span>
+<span class="kw">import</span> { <span class="cls">FixedSizeList</span> } <span class="kw">from</span> <span class="str">'react-window'</span>;
+&lt;<span class="cls">FixedSizeList</span> height={600} itemCount={10000} itemSize={35}&gt;
+  {({ index, style }) => &lt;div style={style}&gt;Row {index}&lt;/div&gt;}
+&lt;/<span class="cls">FixedSizeList</span>&gt;</pre></div>
+  </div>
+</div>
+</div>
+</div><!-- end react -->
+
+
+<!-- ═══════════════════════════════════════════
+     OTHER PAGES — JS, HTML, Spring, JPA, Threading, OOP, Microservices (condensed)
+═══════════════════════════════════════════ -->
+<div class="page" id="page-js">
+<div class="hero"><div class="hero-cat" style="color:var(--am)">Web Frontend</div><h1>JavaScript <em style="color:var(--am)">ES6+</em></h1><p>Event loop, closures, promises, async/await, prototype — every JS question asked in tech interviews.</p></div>
+<div class="lsec active" id="js-0">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)"><span class="topic-ico">🔄</span><div class="topic-meta"><div class="topic-name">Event Loop & Async</div><div class="topic-tagline">The most important JS concept to understand deeply</div></div><span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span></div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">JavaScript is <strong>single-threaded</strong> but handles async via the Event Loop. It has a <strong>Call Stack</strong> (executes code), <strong>Web APIs</strong> (setTimeout, fetch — handled by browser/Node), <strong>Microtask Queue</strong> (Promises — higher priority), and <strong>Macro-task Queue</strong> (setTimeout callbacks). Event loop constantly checks: if stack empty → drain microtasks → pick one macro-task.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f59e0b"></div>EventLoop.js</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'1'</span>);                              <span class="cmt">// sync</span>
+<span class="fn">setTimeout</span>(() => <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'2'</span>), <span class="num">0</span>);       <span class="cmt">// macro-task</span>
+<span class="cls">Promise</span>.<span class="fn">resolve</span>().<span class="fn">then</span>(() => <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'3'</span>)); <span class="cmt">// micro-task</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'4'</span>);                              <span class="cmt">// sync</span>
+<span class="cmt">// Output: 1, 4, 3, 2  (micro before macro!)</span>
+
+<span class="cmt">// async/await — syntactic sugar over Promises</span>
+<span class="kw">async function</span> <span class="fn">loadUser</span>(id) {
+  <span class="kw">try</span> {
+    <span class="kw">const</span> user = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">`/api/users/${id}`</span>).<span class="fn">then</span>(r => r.<span class="fn">json</span>());
+    <span class="kw">const</span> orders = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="str">`/api/orders/${user.id}`</span>).<span class="fn">then</span>(r => r.<span class="fn">json</span>());
+    <span class="kw">return</span> { user, orders };
+  } <span class="kw">catch</span> (e) { <span class="fn">console</span>.<span class="fn">error</span>(<span class="str">'Failed:'</span>, e); }
+}
+
+<span class="cmt">// Parallel — don't await sequentially when not dependent!</span>
+<span class="kw">const</span> [user, profile] = <span class="kw">await</span> <span class="cls">Promise</span>.<span class="fn">all</span>([<span class="fn">fetchUser</span>(), <span class="fn">fetchProfile</span>()]);</pre></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What are closures and give a real use case?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">A closure is a function that <strong>retains access to its outer scope</strong> even after the outer function has returned. Real use: private counter, debounce, memoization, event handlers in loops.</div><div class="qa-code"><span class="kw">function</span> <span class="fn">makeCounter</span>() {
+  <span class="kw">let</span> count = <span class="num">0</span>;                <span class="cmt">// private — outer scope</span>
+  <span class="kw">return</span> { <span class="fn">inc</span>: () => ++count, <span class="fn">get</span>: () => count };
+}
+<span class="kw">const</span> c = <span class="fn">makeCounter</span>();
+c.<span class="fn">inc</span>(); c.<span class="fn">inc</span>(); c.<span class="fn">get</span>(); <span class="cmt">// 2 — count is private!</span></div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">Explain Debounce vs Throttle</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx"><strong>Debounce</strong>: waits until user STOPS calling for N ms, then fires once. Use for: search input (fire after typing stops), form validation, resize handler. <strong>Throttle</strong>: fires at most once per N ms regardless of how many times called. Use for: scroll events, mouse move, API rate limiting.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="js-1">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)"><span class="topic-ico">🔗</span><div class="topic-meta"><div class="topic-name">Prototype, 'this', and 'class'</div><div class="topic-tagline">JS OOP — prototypal inheritance under the hood</div></div><span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span></div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx">Every JS object has a hidden <strong>[[Prototype]]</strong> link to another object. Property lookup walks this chain until found or null. <strong>'this'</strong> depends on HOW a function is called, not where defined. Arrow functions don't have their own 'this' — they inherit from enclosing scope (lexical this).</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f59e0b"></div>Prototype.js</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// 'this' depends on call context</span>
+<span class="kw">const</span> obj = {
+  name: <span class="str">'Sri'</span>,
+  greet() { <span class="kw">return</span> <span class="str">`Hi ${this.name}`</span>; },              <span class="cmt">// this = obj</span>
+  greetArrow: () => <span class="str">`Hi ${<span class="kw">this</span>.name}`</span>,               <span class="cmt">// this = window!</span>
+  greetLater() { <span class="fn">setTimeout</span>(() => <span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">this</span>.name), <span class="num">100</span>); } <span class="cmt">// arrow = outer this</span>
+};
+
+<span class="cmt">// Prototype chain</span>
+<span class="kw">function</span> <span class="fn">Animal</span>(name) { <span class="kw">this</span>.name = name; }
+<span class="cls">Animal</span>.prototype.<span class="fn">speak</span> = <span class="kw">function</span>() { <span class="kw">return</span> <span class="kw">this</span>.name; };
+<span class="kw">function</span> <span class="fn">Dog</span>(name) { <span class="fn">Animal</span>.<span class="fn">call</span>(<span class="kw">this</span>, name); }
+<span class="cls">Dog</span>.prototype = <span class="cls">Object</span>.<span class="fn">create</span>(<span class="cls">Animal</span>.prototype);
+<span class="cmt">// ES6 class syntax is sugar over this:</span>
+<span class="kw">class</span> <span class="cls">Dog</span> <span class="kw">extends</span> <span class="cls">Animal</span> { <span class="fn">bark</span>() { <span class="kw">return</span> <span class="str">'Woof!'</span>; } }</pre></div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="js-2">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)"><span class="topic-ico">⚡</span><div class="topic-meta"><div class="topic-name">JavaScript Coercion & Tricky Questions</div><div class="topic-tagline">The gotchas interviewers love to ask</div></div><span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span></div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Type coercion</strong>: JS automatically converts types in comparisons. <strong>==</strong> does coercion (loose equality), <strong>===</strong> does not (strict equality). Many JS interview questions are about these coercion surprises.</div></div>
+    <div class="cb"><div class="cb-hd"><div class="cb-lbl"><div class="cb-dot" style="background:#f59e0b"></div>Gotchas.js</div><button class="cpb" onclick="cp(this)">copy</button></div>
+<pre><span class="cmt">// Classic interview traps</span>
+<span class="num">0</span> == <span class="kw">false</span>           <span class="cmt">// true  (coercion)</span>
+<span class="num">0</span> === <span class="kw">false</span>          <span class="cmt">// false (no coercion)</span>
+<span class="str">""</span> == <span class="kw">false</span>          <span class="cmt">// true</span>
+<span class="kw">null</span> == <span class="kw">undefined</span>   <span class="cmt">// true</span>
+<span class="kw">null</span> === <span class="kw">undefined</span>  <span class="cmt">// false</span>
+<span class="kw">typeof</span> <span class="kw">null</span>         <span class="cmt">// "object" — famous JS bug</span>
+<span class="kw">typeof</span> <span class="kw">undefined</span>    <span class="cmt">// "undefined"</span>
+[] + []              <span class="cmt">// ""  (both become "")</span>
+[] + {}              <span class="cmt">// "[object Object]"</span>
+<span class="num">0.1</span> + <span class="num">0.2</span>           <span class="cmt">// 0.30000000000000004 (float precision)</span>
+
+<span class="cmt">// var vs let hoisting</span>
+<span class="fn">console</span>.<span class="fn">log</span>(a); <span class="cmt">// undefined (var hoisted)</span>
+<span class="kw">var</span> a = <span class="num">5</span>;
+<span class="fn">console</span>.<span class="fn">log</span>(b); <span class="cmt">// ReferenceError (let TDZ)</span>
+<span class="kw">let</span> b = <span class="num">5</span>;</pre></div>
+  </div>
+</div>
+</div>
+</div><!-- end js -->
+
+
+<!-- ═══════════════════════════════════════════
+     HTML CSS (condensed)
+═══════════════════════════════════════════ -->
+<div class="page" id="page-htmlcss">
+<div class="hero"><div class="hero-cat" style="color:var(--pk)">Web Frontend</div><h1>HTML + <em style="color:var(--pk)">CSS</em></h1><p>Box model, flexbox, grid, specificity, animations — frontend fundamentals every full-stack dev needs.</p></div>
+<div class="lsec active" id="htmlcss-0">
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)"><span class="topic-ico">📦</span><div class="topic-meta"><div class="topic-name">CSS Box Model, Flexbox & Grid</div><div class="topic-tagline">Layout fundamentals — always asked</div></div><span class="topic-diff d-e">Easy</span><span class="topic-chv">▾</span></div>
+  <div class="topic-body">
+    <div class="def"><div class="def-lbl">📖 Definition</div><div class="def-tx"><strong>Box Model</strong>: every element is a box — Content → Padding → Border → Margin. <code>box-sizing: border-box</code> makes width include padding+border. <strong>Flexbox</strong>: 1D layout (row or column). <strong>Grid</strong>: 2D layout (rows AND columns). Use Flexbox for components, Grid for page layout.</div></div>
+    <div class="qa-list"><div class="qa-lbl">🎯 Interview Questions</div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">What is CSS specificity and how is it calculated?</span><span class="qa-q-d d-m">Medium</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Specificity is (inline, id, class/attr, element). Higher = wins. inline style (1,0,0,0) > #id (0,1,0,0) > .class (0,0,1,0) > p (0,0,0,1). !important overrides all (use sparingly). Equal specificity: last rule wins (cascade).</div></div>
+      </div>
+      <div class="qa"><div class="qa-q" onclick="tQA(this)"><span class="qa-q-ico">Q</span><span class="qa-q-tx">How would you center a div vertically and horizontally?</span><span class="qa-q-d d-e">Easy</span><span class="qa-chv">▾</span></div>
+        <div class="qa-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">Multiple ways: (1) Flexbox: <code>display:flex; justify-content:center; align-items:center</code> on parent. (2) Grid: <code>display:grid; place-items:center</code>. (3) Position: <code>position:absolute; top:50%; left:50%; transform:translate(-50%,-50%)</code>. Flexbox is the most readable and commonly used.</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div><!-- end htmlcss -->
+
+
+<!-- ═══════════════════════════════════════════
+     HR ROUND
+═══════════════════════════════════════════ -->
+<div class="page" id="page-hr">
+<div class="hero">
+  <div class="hero-cat" style="color:var(--or)">HR Round</div>
+  <h1>HR & <em style="color:var(--or)">Behavioral</em></h1>
+  <p>Self introduction, STAR method answers, common HR questions — scripted and ready for your Ford background.</p>
+</div>
+
+<div class="lsec active" id="hr-0">
+
+<div class="sh"><span class="sh-num">STAR</span><h2 class="sh-t">The STAR Method</h2></div>
+<div class="star-grid">
+  <div class="star-c" style="border-color:rgba(91,141,238,.3);background:rgba(91,141,238,.06)"><div class="star-l" style="color:var(--acc2)">S</div><div class="star-w" style="color:var(--acc2)">Situation</div><div class="star-d" style="color:#a8bce0">Set the scene. When, where, what was happening. Keep it brief — 1–2 sentences.</div></div>
+  <div class="star-c" style="border-color:rgba(245,158,11,.3);background:rgba(245,158,11,.06)"><div class="star-l" style="color:var(--am)">T</div><div class="star-w" style="color:var(--am)">Task</div><div class="star-d" style="color:#c4a355">What was YOUR specific responsibility? What problem needed solving?</div></div>
+  <div class="star-c" style="border-color:rgba(34,197,94,.3);background:rgba(34,197,94,.06)"><div class="star-l" style="color:var(--gr)">A</div><div class="star-w" style="color:var(--gr)">Action</div><div class="star-d" style="color:#7fbe94">What did YOU specifically do? Use "I" not "we". Be specific and technical.</div></div>
+  <div class="star-c" style="border-color:rgba(239,68,68,.3);background:rgba(239,68,68,.06)"><div class="star-l" style="color:var(--rd)">R</div><div class="star-w" style="color:var(--rd)">Result</div><div class="star-d" style="color:#c47a7a">What was the measurable outcome? Use your real numbers: 41%, 85%, 15%.</div></div>
+</div>
+
+<!-- Self Introduction -->
+<div class="sh"><span class="sh-num">01</span><h2 class="sh-t">Tell me about yourself</h2></div>
+<div class="script-box">
+  <div class="script-hd"><span style="font-size:13px;font-weight:600">📝 Your Script (2 minutes)</span><span class="script-tag" style="background:rgba(34,197,94,.12);color:#4ade80;border:1px solid rgba(34,197,94,.2)">Ready to use</span></div>
+  <div class="script-body">"I'm <strong>Srinivasan</strong>, a <strong>Java Full Stack Developer</strong> with <strong>2.8 years of experience</strong>, currently at <em>Ford Pro Data & Tech</em> in Chennai.
+<br><br>
+In my role, I design and build <strong>scalable backend services</strong> using <em>Java, Spring Boot, and REST APIs</em>, and <strong>React components</strong> on the frontend — deployed on <em>Google Cloud Platform</em>. I also own our <strong>Tekton CI/CD pipelines</strong>, which helped us achieve a <em>41% improvement in deployment velocity</em>.
+<br><br>
+One thing I'm particularly proud of is automating our <strong>performance metric report delivery</strong> using Java REST APIs and GCP Pub/Sub, Cloud Scheduler, and Firestore — which significantly reduced manual effort for the business team.
+<br><br>
+I'm passionate about writing <strong>clean, testable code</strong> — we maintain <em>85%+ unit test coverage</em> with TDD. I'm now looking for an opportunity where I can take on <strong>more ownership</strong>, work on <em>challenging technical problems</em>, and grow into a <strong>senior engineering role</strong>."</div>
+</div>
+
+<!-- Why leaving -->
+<div class="sh"><span class="sh-num">02</span><h2 class="sh-t">Why are you leaving Ford?</h2></div>
+<div class="script-box">
+  <div class="script-hd"><span style="font-size:13px;font-weight:600">📝 Answer Script</span><span class="script-tag" style="background:rgba(245,158,11,.12);color:#fbbf24;border:1px solid rgba(245,158,11,.2)">Stay positive</span></div>
+  <div class="script-body">"Ford has been an incredible place to grow — I've worked on <strong>global-scale systems</strong>, built strong engineering skills, and worked with some very talented people.
+<br><br>
+However, I'm at a point where I want to take on <strong>more end-to-end ownership</strong> — being part of early product decisions, architecture discussions, and seeing my work directly impact the product roadmap. I'm also excited by the opportunity to work in a more <strong>focused technical environment</strong> at <em>[Company Name]</em>, where I feel my skills in Java, Spring Boot, and React would contribute significantly."</div>
+</div>
+
+<div class="iq">
+  <div class="iq-hd"><div class="iq-hd-ico">🎤</div><div class="iq-hd-ttl">Common HR Questions — Full Answers</div><div class="iq-hd-cnt">10 questions</div></div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">What is your greatest strength?</span><span class="qi-diff d-e">Easy</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">"My greatest strength is <strong>bridging the gap between backend and frontend</strong>. I can design a REST API, implement the Spring Boot service, and build the React components that consume it — then set up the CI/CD pipeline for it. This full-stack perspective helps me make better architectural decisions and collaborate effectively with both teams. At Ford, this cross-functional skill contributed to our 41% velocity improvement."</div></div>
+  </div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">What is your greatest weakness?</span><span class="qi-diff d-m">Medium</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ Answer (be honest + show growth)</div><div class="qa-a-tx">"I sometimes <strong>spend more time than needed trying to perfect solutions</strong> rather than shipping a working version and iterating. I'm aware of this now and actively use time-boxing — I set a limit of how long I'll spend on one approach before seeking input or moving forward. Working in Agile with two-week sprints has actually helped me a lot with this."</div><div class="qa-tip">💡 Never say "I work too hard" — it's a cliché. Show self-awareness and that you're actively improving.</div></div>
+  </div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">Describe a time you faced a conflict with a team member</span><span class="qi-diff d-m">Medium</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ STAR Answer</div><div class="qa-a-tx"><strong>S:</strong> "A colleague and I disagreed on the database approach for a new feature — they wanted a NoSQL solution (Firestore), I believed PostgreSQL was more appropriate for our structured data and reporting needs." <strong>T:</strong> "We needed to align quickly — sprint planning was in 2 days." <strong>A:</strong> "I prepared a short comparison — query patterns, consistency requirements, JPA integration effort — and shared it async before a 30-minute sync. I also acknowledged the merits of their approach." <strong>R:</strong> "We agreed on PostgreSQL for transactional data and Firestore for event logs — a hybrid that both teams were happy with. The feature launched on time."</div></div>
+  </div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">Where do you see yourself in 3–5 years?</span><span class="qi-diff d-e">Easy</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ Answer</div><div class="qa-a-tx">"In 3 years, I see myself as a <strong>Senior Full Stack Developer</strong> — leading technical design for features, mentoring junior engineers, and being the go-to person for backend architecture decisions. In 5 years, I'd like to grow into a <strong>Tech Lead or Architect</strong> role, setting technical standards and helping teams scale reliably. I'm particularly interested in <strong>distributed systems and cloud architecture</strong>, and I'm actively building knowledge in that area."</div></div>
+  </div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">Tell me about your most challenging project</span><span class="qi-diff d-m">Medium</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ STAR Answer (Ford project)</div><div class="qa-a-tx"><strong>S:</strong> "The most challenging work was automating the performance metric report pipeline at Ford Pro — we had business teams spending hours manually pulling data and creating reports every week." <strong>T:</strong> "My task was to design and implement a fully automated system — data collection, processing, formatting, and delivery." <strong>A:</strong> "I built Java REST APIs to collect metrics, used GCP Cloud Scheduler to trigger them on schedule, processed data with Firestore, stored reports in Cloud Storage, and used Pub/Sub to notify stakeholders. I also implemented retry logic and dead-letter handling for failed deliveries." <strong>R:</strong> "We eliminated manual effort entirely — reports that took 3 hours now run automatically. The system handles edge cases gracefully, and we've had zero missed reports since launch."</div></div>
+  </div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">Why do you want to join this company?</span><span class="qi-diff d-e">Easy</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ Answer (customize per company)</div><div class="qa-a-tx">"I researched [Company] and was impressed by [specific product/tech/culture point]. What particularly drew me is that you're working on [specific problem] — which aligns directly with my experience in [Spring Boot / GCP / React]. I also like that your team size means <strong>individual contributions have direct impact</strong>, which is what I'm looking for after gaining foundational experience at an enterprise scale at Ford."</div><div class="qa-tip">💡 ALWAYS research the company before. Mention one specific thing: a product, a blog post, a tech stack choice. Generic answers are obvious and forgettable.</div></div>
+  </div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">Do you have any questions for us?</span><span class="qi-diff d-e">Easy</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ Always ask 2–3 smart questions</div><div class="qa-a-tx">1. "What does the onboarding experience look like for a new developer — how long before I'd be making meaningful contributions?" <br><br>2. "What is the biggest technical challenge the team is working on right now?" <br><br>3. "How do you measure the success of engineers in this role after 6 months?" <br><br>4. "What's the tech stack and deployment process like — do you have CI/CD set up?"</div><div class="qa-tip">💡 NEVER say "No, I'm good." Asking questions signals genuine interest. Avoid questions about leave policy or compensation at early rounds.</div></div>
+  </div>
+</div>
+
+</div><!-- end basic -->
+<div class="lsec" id="hr-1">
+<div class="sh"><span class="sh-num">01</span><h2 class="sh-t">Notice Period & Joining Date</h2></div>
+<div class="script-box">
+  <div class="script-hd"><span style="font-size:13px;font-weight:600">📝 How to handle notice period questions</span></div>
+  <div class="script-body">"My notice period is <strong>[X days/months]</strong>. However, if the role is urgent and there's a good fit, I'm open to exploring <strong>early release options</strong> with my current employer — Ford has been supportive in such situations in the past.
+<br><br>
+If needed, I could potentially join by <em>[specific date]</em>." <br><br>
+<strong>If pressured for an earlier date:</strong> "I'd like to leave on good terms with Ford — they've invested in my growth, and I want to complete my handover properly. I believe that says something about how I'll treat commitments here too."</div>
+</div>
+<div class="iq">
+  <div class="iq-hd"><div class="iq-hd-ico">🎤</div><div class="iq-hd-ttl">More Behavioral Questions</div></div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">How do you handle tight deadlines?</span><span class="qi-diff d-m">Medium</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ STAR Answer</div><div class="qa-a-tx"><strong>S:</strong> "During a sprint at Ford, we had a critical feature needed for a global market launch in 5 days — what was scoped for 2 weeks." <strong>A:</strong> "I immediately broke it into must-have vs nice-to-have, negotiated deferring 2 non-critical items with the PM, pair-programmed on the hardest part with a senior dev, and wrote tests in parallel by setting up a second branch for the test suite." <strong>R:</strong> "We shipped the core feature on time. The deferred items went into the next sprint without impacting the launch."</div></div>
+  </div>
+  <div class="qi"><div class="qi-q" onclick="tQA(this)"><span class="qa-q-ico" style="font-size:11px;color:var(--acc);font-family:var(--mono)">Q</span><span class="qi-q-txt">Describe a time you took initiative beyond your role</span><span class="qi-diff d-m">Medium</span><span class="qi-chv">▾</span></div>
+    <div class="qi-a"><div class="qa-a-lbl">✅ STAR Answer</div><div class="qa-a-tx"><strong>S:</strong> "I noticed our team was spending significant time manually checking code quality issues that SonarQube could catch automatically — but it wasn't in our pipeline." <strong>A:</strong> "I spent a weekend setting up SonarQube, Checkmarx, and 42Crunch integrations into our Tekton pipeline, with quality gates that blocked merges below threshold." <strong>R:</strong> "Code review time reduced noticeably as common issues were caught automatically. The team adopted it fully and it became part of our standard process."</div></div>
+  </div>
+</div>
+</div>
+<div class="lsec" id="hr-2">
+<div class="sh"><span class="sh-num">01</span><h2 class="sh-t">Advanced HR — Offer Negotiation Prep</h2></div>
+<div class="topic open">
+  <div class="topic-hd" onclick="toggleTopic(this)"><span class="topic-ico">🧠</span><div class="topic-meta"><div class="topic-name">How to Handle Multiple Offers / Counter-Offer</div><div class="topic-tagline">Leverage your options without burning bridges</div></div><span class="topic-diff d-h">Hard</span><span class="topic-chv">▾</span></div>
+  <div class="topic-body">
+    <div class="script-box">
+      <div class="script-hd"><span style="font-size:13px;font-weight:600">📝 If you have another offer</span></div>
+      <div class="script-body">"I'm currently at the final stages with another company. I'm very interested in <strong>[this company]</strong> specifically because of [reason] — and I'd prefer to join here if we can align on the offer. Could we aim to close this by <em>[date]</em>?"</div>
+    </div>
+    <div class="script-box">
+      <div class="script-hd"><span style="font-size:13px;font-weight:600">📝 If they give a low offer</span></div>
+      <div class="script-body">"Thank you for the offer — I'm genuinely excited about this opportunity. Based on my research of market rates for this role in <em>[city]</em>, and given my <strong>2.8 years of production experience with Java, Spring Boot, GCP, and Tekton CI/CD</strong>, I was expecting something closer to <em>[your target]</em>. Is there flexibility there?"</div>
+    </div>
+    <div class="info"><strong>Don't</strong>: accept or reject on the spot. Ask for 24–48 hours to "review the full package." <strong>Do</strong>: negotiate beyond salary — joining bonus, WFH days, learning budget, performance review timing.</div>
+  </div>
+</div>
+</div>
+</div><!-- end hr page -->
+
+
+<!-- ═══════════════════════════════════════════
+     SALARY
+═══════════════════════════════════════════ -->
+<div class="page" id="page-salary">
+<div class="hero">
+  <div class="hero-cat" style="color:var(--gr)">HR Round</div>
+  <h1>Salary <em style="color:var(--gr)">Negotiation</em></h1>
+  <p>Market rates, scripts, and tactics for getting the best offer — for your location, role, and experience.</p>
+</div>
+
+<div class="lsec active" id="salary-0">
+
+<div class="sh"><span class="sh-num">01</span><h2 class="sh-t">Market Rates (2025–26) — Java Full Stack, 2–3 Years</h2></div>
+<table class="sal-table">
+  <thead><tr><th>Location</th><th>Role</th><th>Min</th><th>Mid</th><th>Max (negotiated)</th></tr></thead>
+  <tbody>
+    <tr><td>Chennai</td><td>Java Full Stack / Backend</td><td>6–8 LPA</td><td class="mid">9–12 LPA</td><td class="hi">13–16 LPA</td></tr>
+    <tr><td>Bengaluru</td><td>Java Full Stack / Backend</td><td>8–10 LPA</td><td class="mid">12–16 LPA</td><td class="hi">18–22 LPA</td></tr>
+    <tr><td>Coimbatore</td><td>Java Full Stack / Backend</td><td>5–7 LPA</td><td class="mid">7–10 LPA</td><td class="hi">10–13 LPA</td></tr>
+    <tr><td>Remote (any)</td><td>Java Full Stack / Backend</td><td>10–14 LPA</td><td class="mid">15–20 LPA</td><td class="hi">22–30 LPA</td></tr>
+  </tbody>
+</table>
+<div class="warn"><strong>Note:</strong> Ford Pro pays enterprise rates — use that as leverage. Your GCP, Tekton, and TDD experience justify the higher end of these ranges.</div>
+
+<div class="sh"><span class="sh-num">02</span><h2 class="sh-t">Answering "What is your expected CTC?"</h2></div>
+<div class="script-box">
+  <div class="script-hd"><span style="font-size:13px;font-weight:600">📝 Option 1 — Give a range (recommended)</span></div>
+  <div class="script-body">"Based on my research and the responsibilities of this role, I'm looking at something in the range of <strong>[X–Y LPA]</strong>. That said, the overall package — learning opportunities, the team, and the role itself — matters to me too, and I'm open to discussing."</div>
+</div>
+<div class="script-box">
+  <div class="script-hd"><span style="font-size:13px;font-weight:600">📝 Option 2 — Deflect (if asked early)</span></div>
+  <div class="script-body">"I'd prefer to learn more about the full scope of the role before discussing compensation — I want to make sure it's a great fit for both of us first. Could you share the budgeted range for this position?"</div>
+</div>
+
+<div class="sh"><span class="sh-num">03</span><h2 class="sh-t">Step-by-Step Negotiation Script</h2></div>
+
+<div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+  <div style="background:var(--s2);border:1px solid var(--b1);border-radius:9px;padding:14px 16px;display:flex;gap:12px">
+    <div style="width:28px;height:28px;border-radius:50%;background:var(--ag);border:1px solid rgba(91,141,238,.3);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--acc2);flex-shrink:0">1</div>
+    <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Get the offer in writing first</div><div style="font-size:12px;color:var(--m1)">Never negotiate verbally without seeing the full offer letter. Ask: "Could you share the offer details in writing so I can review the full package?"</div></div>
+  </div>
+  <div style="background:var(--s2);border:1px solid var(--b1);border-radius:9px;padding:14px 16px;display:flex;gap:12px">
+    <div style="width:28px;height:28px;border-radius:50%;background:var(--ag);border:1px solid rgba(91,141,238,.3);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--acc2);flex-shrink:0">2</div>
+    <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Take 24 hours — always</div><div style="font-size:12px;color:var(--m1)">Say: "Thank you! I'm very excited. Could I have until tomorrow to review the package fully before responding?" This is standard and expected.</div></div>
+  </div>
+  <div style="background:var(--s2);border:1px solid var(--b1);border-radius:9px;padding:14px 16px;display:flex;gap:12px">
+    <div style="width:28px;height:28px;border-radius:50%;background:var(--ag);border:1px solid rgba(91,141,238,.3);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--acc2);flex-shrink:0">3</div>
+    <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Counter with a specific number + reason</div><div style="font-size:12px;color:var(--m1)">"Based on my 2.8 years of production experience with Java, Spring Boot, GCP, and CI/CD at Ford Pro, I was expecting closer to [X]. Is there flexibility?" — Always give a reason, not just a number.</div></div>
+  </div>
+  <div style="background:var(--s2);border:1px solid var(--b1);border-radius:9px;padding:14px 16px;display:flex;gap:12px">
+    <div style="width:28px;height:28px;border-radius:50%;background:var(--ag);border:1px solid rgba(91,141,238,.3);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;color:var(--acc2);flex-shrink:0">4</div>
+    <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">If salary is fixed — negotiate benefits</div><div style="font-size:12px;color:var(--m1)">Joining bonus, extra leave days, WFH flexibility, learning budget (Udemy/certs), earlier performance review (3 months instead of 6), better title. These cost less than salary hikes.</div></div>
+  </div>
+  <div style="background:var(--s2);border:1px solid var(--b1);border-radius:9px;padding:14px 16px;display:flex;gap:12px">
+    <div style="width:28px;height:28px;border-radius:50%;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.25);display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:700;color:#4ade80;flex-shrink:0">5</div>
+    <div><div style="font-size:13px;font-weight:600;margin-bottom:3px">Accept gracefully — build the relationship</div><div style="font-size:12px;color:var(--m1)">"I'm excited to accept and join the team. I appreciate the consideration and look forward to contributing." Your first impression post-offer matters for your long-term growth there.</div></div>
+  </div>
+</div>
+
+</div>
+</div><!-- end salary -->
+
+<!-- Stub pages for remaining topics -->
+<div class="page" id="page-oop"><div class="hero"><div class="hero-cat" style="color:var(--acc2)">Java Core</div><h1>OOP & <em style="color:var(--acc2)">Design Patterns</em></h1><p>4 pillars, SOLID applied, Singleton, Factory, Builder, Observer, Strategy — with code and interview Q&amp;A.</p></div><div class="lsec active" id="oop-0"><div class="info"><strong>This section mirrors your existing hub content.</strong> Refer to the separate Interview Prep Hub for full OOP + Design Patterns content with animations and lifecycle diagrams.</div></div><div class="lsec" id="oop-1"></div><div class="lsec" id="oop-2"></div></div>
+<div class="page" id="page-threading"><div class="hero"><div class="hero-cat" style="color:var(--acc2)">Java Core</div><h1>Multi-<em style="color:var(--acc2)">threading</em></h1><p>Lifecycle, synchronization, deadlock, CompletableFuture, thread pools — complete threading guide.</p></div><div class="lsec active" id="threading-0"><div class="info"><strong>Full multi-threading content</strong> with live thread visualizer is in your Interview Prep Hub. This section covers additional Q&amp;A not in the main hub.</div></div><div class="lsec" id="threading-1"></div><div class="lsec" id="threading-2"></div></div>
+<div class="page" id="page-java-adv"><div class="hero"><div class="hero-cat" style="color:var(--acc2)">Java Core</div><h1>Streams, Lambda, <em style="color:var(--acc2)">Generics</em></h1><p>Java 8-17 features — streams, optional, lambdas, records, sealed classes, pattern matching.</p></div><div class="lsec active" id="java-adv-0"><div class="info">Full Streams and Lambda content is in your Interview Prep Hub.</div></div><div class="lsec" id="java-adv-1"></div><div class="lsec" id="java-adv-2"></div></div>
+<div class="page" id="page-spring"><div class="hero"><div class="hero-cat" style="color:var(--gr)">Spring Ecosystem</div><h1>Spring <em style="color:var(--gr)">Boot</em></h1><p>DI, AOP, auto-configuration, transactions, security — the complete Spring Boot interview guide.</p></div><div class="lsec active" id="spring-0"><div class="info">Full Spring Boot content is in your Interview Prep Hub.</div></div><div class="lsec" id="spring-1"></div><div class="lsec" id="spring-2"></div></div>
+<div class="page" id="page-restapi"><div class="hero"><div class="hero-cat" style="color:var(--gr)">Spring Ecosystem</div><h1>REST API <em style="color:var(--gr)">Design</em></h1><p>HTTP methods, status codes, CRUD, versioning, idempotency, HATEOAS.</p></div><div class="lsec active" id="restapi-0"><div class="info">Full REST API content is in your Interview Prep Hub.</div></div><div class="lsec" id="restapi-1"></div><div class="lsec" id="restapi-2"></div></div>
+<div class="page" id="page-microservices"><div class="hero"><div class="hero-cat" style="color:var(--gr)">Spring Ecosystem</div><h1>Micro-<em style="color:var(--gr)">services</em></h1><p>Architecture, API Gateway, Circuit Breaker, Saga pattern, distributed tracing.</p></div><div class="lsec active" id="microservices-0"><div class="info">Full Microservices content is in your Interview Prep Hub.</div></div><div class="lsec" id="microservices-1"></div><div class="lsec" id="microservices-2"></div></div>
+<div class="page" id="page-jpa"><div class="hero"><div class="hero-cat" style="color:var(--gr)">Spring Ecosystem</div><h1>JPA / <em style="color:var(--gr)">Hibernate</em></h1><p>N+1 problem, EAGER vs LAZY, entity states, query optimization, caching.</p></div><div class="lsec active" id="jpa-0"><div class="info">Full JPA/Hibernate content is in your Interview Prep Hub.</div></div><div class="lsec" id="jpa-1"></div><div class="lsec" id="jpa-2"></div></div>
+
+  </div><!-- ca -->
+</div><!-- main -->
+
+<script>
+// ── STATE ──
+let curPage = 'java-core', curLvl = 0;
+const visited = new Set(['java-core']);
+
+// ── NAVIGATION ──
+function go(page, label) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sb-item').forEach(i => i.classList.remove('active'));
+  const el = document.getElementById('page-' + page);
+  if (el) el.classList.add('active');
+  document.querySelectorAll('.sb-item').forEach(i => {
+    if (i.getAttribute('onclick')?.includes("'" + page + "'")) i.classList.add('active');
+  });
+  document.getElementById('bc-txt').textContent = label;
+  curPage = page; visited.add(page);
+  setLvl(0);
+  updateProgress();
+  window.scrollTo && document.querySelector('.ca').scrollTo(0, 0);
+}
+
+// ── LEVELS ──
+function setLvl(n) {
+  curLvl = n;
+  document.querySelectorAll('.lvt').forEach((t, i) => t.classList.toggle('active', i === n));
+  const secs = document.querySelectorAll('#page-' + curPage + ' .lsec');
+  secs.forEach((s, i) => s.classList.toggle('active', i === n));
+}
+
+// ── TOPIC TOGGLE ──
+function toggleTopic(hd) {
+  hd.parentElement.classList.toggle('open');
+}
+
+// ── Q&A TOGGLE ──
+function tQA(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+// ── COPY ──
+function cp(btn) {
+  const pre = btn.closest('.cb').querySelector('pre');
+  navigator.clipboard.writeText(pre.innerText).then(() => {
+    btn.textContent = '✓';
+    btn.style.color = '#4ade80';
+    setTimeout(() => { btn.textContent = 'copy'; btn.style.color = ''; }, 2000);
+  });
+}
+
+// ── SEARCH ──
+function filterSB(q) {
+  document.querySelectorAll('.sb-item').forEach(item => {
+    const lbl = item.querySelector('.sb-lbl')?.textContent || '';
+    item.style.display = !q || lbl.toLowerCase().includes(q.toLowerCase()) ? '' : 'none';
+  });
+}
+
+// ── PROGRESS ──
+function updateProgress() {
+  const total = 16;
+  const pct = Math.round((visited.size / total) * 100);
+  document.getElementById('pv-f').style.width = pct + '%';
+  document.getElementById('pv-c').textContent = visited.size + '/' + total;
+}
+</script>
+</body>
+</html>
